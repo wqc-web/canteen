@@ -1,0 +1,12 @@
+
+jdbc.driver=com.mysql.jdbc.Driver
+
+
+#jdbc.url=jdbc:mysql://192.168.0.2:3306/db_canteen?characterEncoding=utf-8
+#jdbc.username=root
+#jdbc.password=root
+
+
+jdbc.url=jdbc:mysql://127.0.0.1:3306/db_canteen?useUnicode=true&characterEncoding=UTF-8&failOverReadOnly=false&maxReconnects=10&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+jdbc.username=root
+jdbc.password=zz@jszzkj.cn

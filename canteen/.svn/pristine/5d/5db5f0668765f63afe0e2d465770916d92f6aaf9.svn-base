@@ -1,0 +1,26 @@
+package com.zhongzhou.service.canteen;
+
+import java.util.List;
+
+
+import com.zhongzhou.dto.MenuMessageDto;
+import com.zhongzhou.entity.canteen.MenuMessage;
+
+/**
+ *	菜单消息
+ */
+public interface MenuMessageService {
+
+	/**
+	 *	菜单消息分页查询
+	 */
+	List<MenuMessageDto> queryMenuMessagePage(Integer lr, Integer startPage, Integer endPage);
+
+	/**
+	 * 	删除指定id
+	 */
+	Long deleteId(Integer id);
+	
+	
+	Long insert(MenuMessage record);
+}

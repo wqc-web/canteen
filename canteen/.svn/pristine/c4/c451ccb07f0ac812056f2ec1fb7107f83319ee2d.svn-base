@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>一周食谱</title>
+		<script src="${Session.BASE_URL}/js/mui.min.js"></script>
+		<link href="${Session.BASE_URL}/css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${Session.BASE_URL}/lying/layui/css/layui.css">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/lau/lau.css">
+        <!-- <script type="text/javascript" src="${Session.BASE_URL}/js/time.js" ></script> -->
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+
+		<style type="text/css">
+			
+			
+			.mui-title {
+				background-color: #F0AD4E;
+				color: white;
+			}
+
+			.h1 {
+				background-color: burlywood;
+				color: white;
+				text-align: center;
+				margin-top: 0%;
+			}
+
+			.control {
+				border-color: sandybrown;
+				border:
+			}
+
+			.control1 {
+				border-color: white;
+			}
+
+			.acontrol {
+				border-color: white;
+			}
+
+			.mui-table-view:before {
+				height: 0
+			}
+
+			.mui-table-view:after {
+				height: 0
+			}
+
+			.input1 {
+				height: 32px;
+				margin-left: 20%;
+				border-radius: 15px;
+				border-color: #F4A460;
+			}
+
+			.button1 {
+
+				border-radius: 10px;
+				border-color: #D9BC82;
+				background-color: #D8BB81;
+				width: 20%;
+			}
+
+			.u1 {
+				border-radius: 10px;
+				display: line;
+
+			}
+
+			.a1 {}
+
+			#div {
+				width: 0px;
+				height: 0px;
+				background: red;
+				position: fixed;
+				top: 13%;
+				left: 50%;
+
+			}
+
+			.tab {
+				background-color: white;
+			}
+
+			.a2 {
+				display: block;
+				text-align: center;
+			}
+
+			.upimg {
+				position: relative;
+				width: 20%;
+				height: 20%;
+
+				border-radius: 5px;
+				background: url(${Session.BASE_URL}/img/menu/addFile.png) no-repeat;
+				background-position: 5px;
+				background-size: 90% 90%;
+			}
+
+			.upimg input {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				opacity: 0;
+			}
+
+			.second {
+				list-style: none;
+				background: url("img/nimin_gaitubao_45x41.jpg") no-repeat;
+				padding-left: 20px;
+			}
+
+			.right_fbox {
+				width: 100%;
+				height: 8%;
+				position: fixed;
+				float: right;
+				left: 50%;
+				top: 80%;
+				z-index: 999;
+				margin-left: 30%;
+
+				border: 10px;
+				border-color: #F0F8FF;
+				border-radius: 13px;
+				opacity: 1;
+			}
+
+
+			/*移除底部或顶部三角,需要在删除此代码*/
+
+			.mui-popover .mui-popover-arrow:after {
+				width: 0px;
+			}
+
+			.mui-table-view {
+				background-color: rgba(1, 1, 1, 0);
+			}
+
+			.mui-table-view-cell {
+				padding-right: 5px;
+				margin-bottom: 15px;
+				border-radius: 10px;
+				background-color: #fff;
+				padding:5px;
+			}
+			.mui-table-view-cell.mui-active{
+				background-color:#fff
+			}
+		</style>
+	<script type="text/javascript">
+		//底部按钮点击
+				function menuBottomList(page){
+					
+					$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp-1.png");
+					$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl-1.png");
+					$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm-1.png");
+					
+					$("#menuBottom1").css("background","#f3f3f3");
+					$("#menuBottom2").css("background","#f3f3f3");
+					$("#menuBottom3").css("background","#f3f3f3");
+					
+					if(page == 1){
+						$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp.png");
+						$("#menuBottom1").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpMenu";
+					}
+					
+					if(page == 2){
+						$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl.png");		
+						$("#menuBottom2").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpMessage";
+					}
+									
+					if(page == 3){
+						$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm.png");
+						$("#menuBottom3").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpRank";
+					}
+					
+					
+				}
+
+	</script>
+	</head>
+
+	<body>
+
+	 <div style="width: 100%; height: 6%; background-color: #f3f3f3; position: absolute; position:fixed ; bottom:0; z-index: 999;">
+			<div  id="menuBottom1" onclick="menuBottomList(1)"  style="width: 33%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg1" src="${Session.BASE_URL}/img/menu/cp-1.png" style="width: 35px; height: 35px; "/>
+			</div>
+			<div  id="menuBottom2" onclick="menuBottomList(2)" style="width: 34%; height: 100%; float: left; background-color: white; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg2" src="${Session.BASE_URL}/img/menu/pl.png" style="width: 35px; height: 35px"/>
+			</div>
+			<div  id="menuBottom3" onclick="menuBottomList(3)"  style="width: 33%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg3" src="${Session.BASE_URL}/img/menu/pm-1.png" style="width: 35px; height: 35px"/>
+			</div>
+	  </div>
+
+
+
+		<div style="width:100%;height:30px;font-size: 0.8rem;display: flex;justify-content: flex-end;align-items: center;margin-bottom:2px; background-color:#fff;">
+				<marquee id="noticeMessage"  style="font-size: 0.8rem;display: flex;color:gray;justify-content: flex-end;align-items:center;padding-right: 20px;"></marquee>
+		</div>
+		
+		<div class="mui-content">
+			
+			<div id="page2" class="mui-control-content  mui-active mui-tab-item">
+				<div id="slider" class="mui-slider">
+					<div id="segmentedControl" class="mui-slider-indicator mui-segmented-control  control1 " style="background-color: #ffffff; border:1px solid #D9BC82; ">
+						<a  id="gzrPage" class="mui-control-item mui-active"  href="#item6">
+							工作日就餐
+						</a>
+						
+						<a id="jjrPage"  class="mui-control-item "  href="#item7" style="border-left: 1px solid #D9BC82;">
+							节假日免费就餐
+						</a>
+
+					</div>
+
+					<div class="mui-content-padded">
+						<div id="item6" class="mui-slider-item  mui-control-content mui-active">
+							<div id="mui-slider-group">
+								<div id="mui-scroll">
+									<ul id="gz" class="mui-table-view mui-table-view-chevron">
+
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div id="item7" class="mui-control-content">
+							<div id="mui-slider-group">
+								<div id="mui-scroll">
+									<ul id="mf" class="mui-table-view mui-table-view-chevron">
+									
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+			<br />
+			<a id="sendMessage">
+				<div id="" class="right_fbox">
+					<img src="${Session.BASE_URL}/img/menu/message.png" style="margin-left:6%;margin-top:4.5%;margin-bottom:6%;margin-right:6%;"></img>
+				</div>
+			</a>
+
+		</div>
+
+		</div>
+
+		</div>
+
+
+		<div id="div"></div>
+		<div id="popover" class="mui-popover" style="height: 300px;">
+			<div class="mui-popover-arrow"></div>
+			<div style="width:100%;height:100%;padding:5%">
+				<div style="width:100%;height:50%;">
+					<div style="width:100%;height:20%;display:flex;justify-content:flex-start;align-items:center">请留言:</div>
+					<div style="width:100%;height:80%;padding:1%">
+						<textarea id="content" placeholder="请输入留言信息" style="font-size: small; width:100%;height:100%"></textarea>
+					</div>
+				</div>
+				
+				
+				
+				<!-- <div class="layui-card-body">
+	                <div class="layui-upload" style="margin: auto;">
+	                    <div class="layui-upload-list" id="test1">
+	                        <img class="layui-upload-img" id="demo1" style="height: 80px;" src="${Session.BASE_URL}/img/add.png">
+	                        <p id="demoText"></p>
+	                    </div>
+	                </div>
+	            </div> -->
+				
+			 	 <div class="upimg" id="test1"  > 
+				</div> 
+				
+				<div style="width:100%;height:15%;display:flex;justify-content:flex-start;align-items:center;flex-direction:row">
+					<div id="messageSm" onclick="anonymousClick(1)" style="width:20%;height:70%;border-radius:5px;border-color: #D9BC82;background-color: #ccc8c7;display:flex;justify-content:center;align-items:center; color: #7f7f7f;">实名</div>
+					<div style="width:5%;height:70%;"></div>
+					<div id="messageNm" onclick="anonymousClick(2)" style="width:20%;height:70%;border-radius:5px;border-color: #D9BC82;background-color: #D8BB81;display:flex;justify-content:center;align-items:center; color: #ffffff;">匿名</div>
+				</div>
+				<div style="width:100%;height:15%;display:flex;justify-content:center;align-items:center;">
+					<div onclick="saves()" style="width:85%;height:80%;border-radius:14px;border-color: #D9BC82;background-color: #D8BB81;display:flex;justify-content:center;align-items:center; color: #ffffff;">发送</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/mui.js"></script>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/mui.min.js"></script>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/mui.pullToRefresh.js"></script>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/mui.pullToRefresh.material.js"></script>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/jquery-2.1.0.js"></script>
+	<script src="${Session.BASE_URL}/lying/layui/layui.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+	
+		//图片地址
+		var picUrl = "";
+		//1工作日 2节假日
+		var lr = "1";
+		//1显示 2匿名
+		var anonymous = "2";
+		
+		//匿名 实名 点击
+		function anonymousClick(flag){
+			anonymous = flag;
+			
+			$("#messageSm").css({"background": "#ccc8c7"});
+			$("#messageSm").css({"color": "#7f7f7f"});
+			
+			$("#messageNm").css({"background": "#ccc8c7"});
+			$("#messageNm").css({"color": "#7f7f7f"});
+			
+			if(anonymous == 1){
+				$("#messageSm").css({"background": "#D8BB81"});
+				$("#messageSm").css({"color": "#ffffff"});
+			}
+			
+			if(anonymous == 2){
+				$("#messageNm").css({"background": "#D8BB81"});
+				$("#messageNm").css({"color": "#ffffff"});
+			}
+			
+		}
+		
+		layui.use('upload', function() {
+	        var $ = layui.jquery
+	            , upload = layui.upload;
+	
+	        //普通图片上传
+	        var uploadInst = upload.render({
+	            elem: '#test1'
+	            ,url: '${Session.BASE_URL}/file/upload'
+	            ,done: function(res){
+	                //上传成功
+	                if(res.code == 'SUCCESS'){
+	                    console.log(res)
+	                    picUrl=res.data[0].filepath;
+	                    return layer.msg('上传成功');
+	                }else{
+	                    //如果上传失败
+	                    return layer.msg('上传失败');
+	                }
+	
+	            }
+	            ,error: function(){
+	            	 return layer.msg('上传失败');
+	            }
+	        });
+	
+	    });
+	
+		
+		var post_flag = false;
+		
+		function saves(){
+        	
+        	/* if(!picUrl){
+				return layer.msg('请上传图片');
+           	} */
+        	
+        	if(!$("#content").val()){
+				return layer.msg('请输入留言');
+           	}
+        	
+        	
+            //如果正在提交则直接返回，停止执行
+            if(post_flag) return;
+            //标记当前状态为正在提交状态
+            post_flag = true;
+
+            
+          
+            var data="";
+            var url="";
+            var time = CurentTime();
+            var content = $("#content").val();            
+            
+            data={
+                'time':time
+                ,'content':content
+                ,'anonymous':anonymous
+                ,'picurl':picUrl
+                ,'lr':lr
+            }
+            console.log(data)
+            url = "${Session.BASE_URL}/message/addMessage" ;
+           
+            //提交
+            $.ajax({
+                url:url,
+                type : 'POST',
+                data:data,
+                success:function (result) {
+                    if(result.code=='200'){
+                    	
+                   		layer.msg('发表成功')   
+                    	    
+                    	init();
+                    	
+                    	mui("#popover").popover('hide');
+                    	
+                    	//清空数据
+                    	picUrl = "";
+                    	$("#content").val("");
+                    	
+                    }
+                    post_flag =false; //在提交完成后将标志标记为可提交状态
+                },
+                error: function(){
+                    post_flag =false; //AJAX失败也需要将标志标记为可提交状态
+                }
+            })
+            
+
+        }
+	
+		
+		
+		
+		document.getElementById('gzrPage').addEventListener('tap',function(){  
+			//1工作日 2节假日 
+			lr = 1; 
+		});  
+		document.getElementById('jjrPage').addEventListener('tap',function(){  
+			//1工作日 2节假日 
+			lr = 2; 
+		});  
+		
+		
+		document.getElementById("sendMessage").addEventListener("tap", function() {
+			//调用隐藏/显示弹出层
+			mui("#popover").popover('toggle', document.getElementById("div"));
+		})
+
+		
+		function CurentTime()
+		    { 
+		        var now = new Date();
+		        
+		        var year = now.getFullYear();       //年
+		        var month = now.getMonth() + 1;     //月
+		        var day = now.getDate();            //日
+		        
+		        var hh = now.getHours();            //时
+		        var mm = now.getMinutes();          //分
+		        var ss = now.getSeconds();           //秒
+		        
+		        var clock = year + "-";
+		        
+		        if(month < 10)
+		            clock += "0";
+		        
+		        clock += month + "-";
+		        
+		        if(day < 10)
+		            clock += "0";
+		            
+		        clock += day + " ";
+		        
+		        if(hh < 10)
+		            clock += "0";
+		            
+		        clock += hh + ":";
+		        if (mm < 10) clock += '0'; 
+		        clock += mm + ":"; 
+		         
+		        if (ss < 10) clock += '0'; 
+		        clock += ss; 
+		        return(clock); 
+		}
+		
+		function timestampToTime(time) {
+			var date = new Date(time); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+			Y = date.getFullYear() + '-';
+			M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+			D = date.getDate() + ' ';
+			h = date.getHours() + ':';
+			m = date.getMinutes() + ':';
+			s = date.getSeconds();
+			return Y + M + D;
+		}
+		var pageNo_1 = 1;
+		var pageNo_2 = 1;
+		var pageNo_3 = 1;
+		var pageNo_4 = 1;
+		var pageSize = 6;
+
+		var goodState = document.getElementById("goodState");
+		var gz = document.getElementById("gz").value;
+		var mf = document.getElementById("mf").value;
+		
+		//消息通知
+		function noticeMessage(){
+			$.ajax({
+                url:"${Session.BASE_URL}/notice/queryFlagAscList",
+                type : 'POST',
+                data:{
+                 	"flag" : 1
+                },
+                success:function (result) {
+					
+                	var value = "";
+                	
+                	if(result.data.length > 0){
+                		value = "通知："
+                		for(var i = 0 ; i<result.data.length ; i++){
+                			value  +=  result.data[i].message + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                		}
+                	}
+                	console.log(value)
+                	$("#noticeMessage").html(value);
+                }
+            })
+		}
+		
+		mui.init({
+
+			swipeBack: true
+			//右滑关闭功能queryDriversByIsfocus
+		});
+		(function($) {
+			//$('#mui-slider-group').scroll({
+			//	indicators: true
+				//是否显示滚动条
+			//});
+			
+			//消息通知
+			noticeMessage();
+
+			$.ready(function() {
+				//循环初始化所有下拉刷新，上拉加载。
+				$.each(document.querySelectorAll('#mui-slider-group #mui-scroll'),
+					function(index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							up: {
+								auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+								show: true,
+								contentdown: '',
+								contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+								contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+								callback: function() {
+									var self = this;
+									var count = 0;
+
+									setTimeout(function() {
+										if (index == 0) {
+										
+											// loadGZ(self);
+											loadGZ(self);
+											pageNo_3 = pageNo_3 + 1;
+										} else if (index == 1) {
+											
+											loadMF(self);
+											pageNo_4 = pageNo_4 + 1;
+										} 
+									}, 1000);
+								}
+							}
+						});
+					});
+			});
+		})(mui);
+
+
+		function init(){
+			
+			pageNo_3 = 1;
+			pageNo_4 = 1;
+			
+			document.getElementById("gz").innerHTML = "";
+			document.getElementById("mf").innerHTML = "";
+			
+			(function($) {
+				//$('#mui-slider-group').scroll({
+			//	indicators: true
+				//是否显示滚动条
+			//});
+
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('#mui-slider-group #mui-scroll'),
+						function(index, pullRefreshEl) {
+							$(pullRefreshEl).pullToRefresh().refresh(true);;
+						});
+				});
+			})(mui);
+			
+			
+			(function($) {
+				//$('#mui-slider-group').scroll({
+			//	indicators: true
+				//是否显示滚动条
+			//});
+
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('#mui-slider-group #mui-scroll'),
+						function(index, pullRefreshEl) {
+							$(pullRefreshEl).pullToRefresh({
+								up: {
+									auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+									show: true,
+									contentdown: '',
+									contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+									contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+									callback: function() {
+										var self = this;
+										var count = 0;
+
+										setTimeout(function() {
+											if (index == 0) {
+											
+												// loadGZ(self);
+												loadGZ(self);
+												pageNo_3 = pageNo_3 + 1;
+											} else if (index == 1) {
+												
+												loadMF(self);
+												pageNo_4 = pageNo_4 + 1;
+											} 
+										}, 1000);
+									}
+								}
+							});
+						});
+				});
+			})(mui);
+		}
+		
+		// 			
+		// 		//加载工作日就餐
+		// 		function load1(self) {
+		// 			$.ajax({
+		// 				url: 'load1.json',
+		// 				//			type : 'POST',
+		// 				//			dataType : 'JSON',
+		// 				//			data : {
+		// 				//				pageNum : pageNo_2,
+		// 				//				pageSize : pageSize
+		// 				//			},
+		// 				success: function(result) {
+		// 					console.log(result);
+		// 					if (result.code = "SUCCESS") {
+		// 						var ul = document.getElementById("load1");
+		// 						ul.appendChild(createFragment1(ul, result.list));
+		// 						if (result.list.length > 0) {
+		// 							self.endPullUpToRefresh(false);
+		// 						} else {
+		// 							self.endPullUpToRefresh(true);
+		// 						}
+		// 					} else {
+		// 
+		// 					}
+		// 				}
+		// 			});
+		// 		}
+		// 
+		// 		//加载工作日就餐
+		// 		function createFragment1(ul, response) {
+		// 			var fragment = document.createDocumentFragment();
+		// 			var li;
+		// 			for (var i = 0; i < response.length; i++) {
+		// 				li = document.createElement('li');
+		// 				li.className = 'mui-table-view-cell';
+		// 				//				li.setAttribute("data-id", response[i].personid);
+		// 				var lii = '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].flex + '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].name +
+		// 					'<span style="float:right;" >' + response[i].sum + '</span>';
+		// 				li.innerHTML = lii;
+		// 				fragment.appendChild(li);
+		// 			}
+		// 
+		// 			return fragment;
+		// 		}
+		// 
+		// 		//加载工作日就餐
+		// 		function load2(self) {
+		// 			$.ajax({
+		// 				url: 'load2.json',
+		// 				success: function(result) {
+		// 					console.log(result);
+		// 					if (result.code = "SUCCESS") {
+		// 						var ul = document.getElementById("load2");
+		// 						ul.appendChild(createFragmentz(ul, result.list));
+		// 
+		// 						if (result.list.length > 0) {
+		// 							self.endPullUpToRefresh(false);
+		// 						} else {
+		// 							self.endPullUpToRefresh(true);
+		// 						}
+		// 					} else {
+		// 
+		// 					}
+		// 				}
+		// 			});
+		// 		}
+		// 
+		// 		//加载工作日就餐
+		// 		function createFragmentz(ul, response) {
+		// 			var fragment = document.createDocumentFragment();
+		// 			var li;
+		// 			for (var i = 0; i < response.length; i++) {
+		// 				li = document.createElement('li');
+		// 				li.className = 'mui-table-view-cell';
+		// 				//				li.setAttribute("data-id", response[i].personid);
+		// 				var lii = '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].flex + '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].name +
+		// 					'<span style="float:right;" >' + response[i].sum + '</span>';
+		// 				li.innerHTML = lii;
+		// 				fragment.appendChild(li);
+		// 			}
+		// 
+		// 			return fragment;
+		// 		}
+		// 
+		// 		//加载工作日就餐
+		// 		function load3(self) {
+		// 			$.ajax({
+		// 				url: 'load3.json',
+		// 				type: 'POST',
+		// 				dataType: 'JSON',
+		// 				data: {
+		// 					pageNum: pageNo_2,
+		// 					pageSize: pageSize
+		// 				},
+		// 				success: function(result) {
+		// 					console.log(result);
+		// 					if (result.code = "SUCCESS") {
+		// 						var ul = document.getElementById("load3");
+		// 						ul.appendChild(createFragment3(ul, result.list));
+		// 
+		// 						if (result.list.length > 0) {
+		// 							self.endPullUpToRefresh(false);
+		// 						} else {
+		// 							self.endPullUpToRefresh(true);
+		// 						}
+		// 					} else {
+		// 
+		// 					}
+		// 				}
+		// 			});
+		// 		}
+		// 
+		// 		//加载工作日就餐
+		// 		function createFragment3(ul, response) {
+		// 			var fragment = document.createDocumentFragment();
+		// 			var li;
+		// 			for (var i = 0; i < response.length; i++) {
+		// 				li = document.createElement('li');
+		// 				li.className = 'mui-table-view-cell';
+		// 				//				li.setAttribute("data-id", response[i].personid);
+		// 				var lii = '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].flex + '&nbsp;&nbsp;&nbsp;&nbsp;' + response[i].name +
+		// 					'<img src="">' + '<span style="float:right; " >' + response[i].sum + '</span>';
+		// 				li.innerHTML = lii;
+		// 				fragment.appendChild(li);
+		// 			}
+		// 
+		// 			return fragment;
+		// 		}
+		// 
+		
+
+
+		//加载工作日就餐
+		function loadGZ(self) {
+			$.ajax({
+				url: '${Session.BASE_URL}/message/queryMenuMessagePage',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {
+					pageNumber: pageNo_3,
+					pageSize: pageSize,
+					lr: 1
+				},
+				success: function(result) {
+					console.log(result);
+					if (result.code = "200") {
+						var ul = document.getElementById("gz");
+						createFragmentGZ(ul, result.data);
+
+						if (result.data.length > 0) {
+							self.endPullUpToRefresh(false);
+						} else {
+							self.endPullUpToRefresh(true);
+						}
+					} else {
+
+					}
+				}
+			});
+		}
+		//加载工作日就餐
+		function createFragmentGZ(ul, response) {
+			
+			var li = "";
+			
+			for (var i = 0; i < response.length; i++) {
+				
+				var name =  response[i].name;
+				var time = timestampToTime(response[i].time);
+				var content = response[i].content ;
+				var avatar =  response[i].avatar ;
+				var picurl =  response[i].picurl ;
+				var anonymous = response[i].anonymous ;
+				
+				//1显示 2匿名
+				if(anonymous == 1){
+					
+				}else if(anonymous == 2){
+					name = '匿名';
+					avatar = "${Session.BASE_URL}/img/menu/nimin_gaitubao_45x41.jpg"
+				}else{
+					name = '匿名';
+					avatar = "${Session.BASE_URL}/img/menu/nimin_gaitubao_45x41.jpg"
+				}
+				
+				var imgLi ;
+				
+				if(!picurl){
+					imgLi =  '';
+				}else{
+					imgLi = '<div style="width:100%;height:20%;"><img src="${Session.BASE_URL}/'+ picurl +'" style="width:30%;height:30%"> </div>';
+				}
+				
+				 li += '<li class="mui-table-view-cell" style="padding-right:5px;box-shadow:0 5px 5px 0px gray;">'
+						+		'<div style="width:100%;height:100%;display:flex;flex-derection:row">'
+						+			'<div style="width:20%;height:100%;">'
+						+				'<img src="' + avatar +  '" style="width:80%;height:80%"/>'
+						+			'</div>'
+						+			'<div style="width:80%;height:100%">'
+						+				'<div style="width:100%;height:10%;font-size:0.9rem;font-weight:bold">' + name + '</div>'
+						+				'<div style="width:100%;height:10%;font-size:0.8rem">' + time + '</div>' 
+						+				'<div style="font-size:0.9rem">' + content + ' </div>'
+						+				imgLi
+						+			'</div>'
+						+		'</div>'
+						+	'</li>'
+						
+						
+				
+					
+				
+			}
+
+			ul.innerHTML += li;
+		}
+
+		//加载节假日套餐
+		function loadMF(self) {
+			$.ajax({
+				url: '${Session.BASE_URL}/message/queryMenuMessagePage',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {
+					pageNumber: pageNo_4,
+					pageSize: pageSize,
+					lr: 2
+				},
+				success: function(result) {
+					console.log(result);
+					if (result.code = "200") {
+						var ul = document.getElementById("mf");
+						createFragmentGZ(ul, result.data);
+
+						if (result.data.length > 0) {
+							self.endPullUpToRefresh(false);
+						} else {
+							self.endPullUpToRefresh(true);
+						}
+					} else {
+
+					}
+				}
+			});
+		}
+
+		
+	</script>
+
+</html>

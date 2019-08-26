@@ -1,0 +1,446 @@
+<!--
+  日期： 2018年12月12日
+  作者： zz   zhz@jszzkj.cn
+  文档： 会议信息更新
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>会议信息更新</title>
+    <link rel="stylesheet" type="text/css" href="../../lying/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../lying/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../plugins/formSelects/formSelects-v4.css"/>
+
+    <style>
+      body {
+        background-color: #ffffff;
+      }
+      #meetingInfo {
+        padding: 16px 32px;
+      }
+      #meetingInfo .layui-form-item {
+        /* UI设计图输入框尺寸340px */
+        /* 对其lyuidate宽度274px，前标110px，这里用383px; */
+        width: 384px;
+      }
+      #meetingInfo button {
+          padding: 0 40px;
+      }
+      #meetingInfo form {
+          margin: 0 auto;
+          width: 384px;
+      }
+      .layui-form-label {
+        float: left;
+        display: block;
+        padding: 9px 15px;
+        width: 120px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: right;
+      }
+      .layui-input-block {
+        margin-left: 150px;
+        min-height: 36px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 弹窗 -->
+    <div id="meetingInfo">
+      <form class="layui-form" action="" id="updataForm" lay-filter="updataForm">
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="meetingdate">会议日期</label>
+          <div class="layui-input-block">
+            <input
+              type="text"
+              name="meetingdate"
+              id="meetingdate"
+              required
+              lay-verify="required"
+              placeholder=""
+              autocomplete="off"
+              class="layui-input"
+            />
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="starttime">开始时间</label>
+          <div class="layui-input-block">
+            <input
+              type="text"
+              name="starttime"
+              id="starttime"
+              required
+              lay-verify="required"
+              placeholder=""
+              autocomplete="off"
+              class="layui-input"
+            />
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="endtime">结束时间</label>
+          <div class="layui-input-block">
+            <input
+              type="text"
+              name="endtime"
+              id="endtime"
+              required
+              lay-verify="required"
+              placeholder=""
+              autocomplete="off"
+              class="layui-input"
+            />
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="meetingplace">会议地点</label>
+          <div class="layui-input-block">
+            <select
+              xm-select="roomid" 
+              xm-select-radio
+              xm-select-search=""
+              xm-select-direction="down"
+              xm-select-skin="normal"
+              lay-filter="roomid"
+              name="roomid"
+              id="roomid"
+              lay-verify="required"
+            >
+            </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="organizer">提前签到时长(min)</label>
+          <div class="layui-input-block">
+            <input
+              type="text"
+              name="leadlength"
+              id="leadlength"
+              required
+              lay-verify="required"
+              placeholder="请输入提前签到时长（分钟）"
+              autocomplete="off"
+              class="layui-input"
+            />
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="organizer">组织单位/人</label>
+          <div class="layui-input-block">
+            <input
+                    type="text"
+                    name="organizer"
+                    id="organizer"
+                    required
+                    lay-verify="required"
+                    placeholder=""
+                    autocomplete="off"
+                    class="layui-input"
+            />
+          </div>
+        </div>
+        <div class="layui-form-item">
+		    <label class="layui-form-label">人员方式</label>
+		    <div class="layui-input-block">
+		      <input type="radio" lay-filter="radio" name="type1" value="1" title="按部门" checked>
+		      <input type="radio" lay-filter="radio" name="type1" value="2" title="按分组">
+		    </div>
+		  </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="userids">参会人员</label>
+          <div class="layui-input-block">
+            <select
+              xm-select="userids"
+              xm-select-search=""
+              xm-select-direction="down"
+              xm-select-skin="normal"
+              lay-filter="userids"
+              name="userids"
+              id="userids"
+              lay-verify="required"
+            >
+            </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="meetingtheme">会议主题</label>
+          <div class="layui-input-block">
+            <!--<input-->
+            <!--type="text"-->
+            <!--name="meetingtheme"-->
+            <!--required-->
+            <!--lay-verify="required"-->
+            <!--placeholder=""-->
+            <!--autocomplete="off"-->
+            <!--class="layui-input"-->
+            <!--/>-->
+            <textarea name="meetingtheme" id="meetingtheme" required lay-verify="required" class="layui-textarea" style="resize: none;"></textarea>
+          </div>
+        </div>
+
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="submitBtn layui-btn layui-btn-normal" lay-submit lay-filter="updataForm" >
+              发布
+            </button>
+            <button type="reset" class="layui-btn layui-btn-primary">
+              重置
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript" src="../../lying/layui/layui.js"></script>
+  <script type="text/javascript" src="../../js/HZMN.js"></script>
+  <script type="text/javascript" src="../../plugins/formSelects/formSelects-v4.js"></script>
+  <script type="text/javascript" src="../../js/jquery-2.1.0.js"></script>
+  <script>
+    "use strict";
+
+    //获取url传递的参数 - 人员id
+    function getQueryString(name) {
+      const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+        r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    // 获取会议id
+    const meetingId = getQueryString("mid") || null;
+    
+    layui.use(["layer", "laydate", "form"], function() {
+      const layer = layui.layer,
+        form = layui.form,
+        laydate = layui.laydate,
+        $ = layui.jquery;
+
+      const formSelects = layui.formSelects;
+
+
+    //会议日期
+    laydate.render({
+      elem: "#meetingdate",
+      type: "date",
+      min: 0
+      // ,value: data ? data.meetingdate : ''
+      ,theme: "#1E9FFF"
+    });
+    // //开始时间
+    laydate.render({
+      elem: "#starttime",
+      type: "time",
+      format: "HH:mm"
+      // ,value: data ? data.starttime : ''
+      ,theme: "#1E9FFF"
+    });
+    //结束时间
+    laydate.render({
+      elem: "#endtime",
+      type: "time",
+      format: "HH:mm"
+      // ,value: data ? data.endtime : ''
+      ,theme: "#1E9FFF"
+    });
+
+    
+    
+  	//获取会议室信息
+    function loadroom(roomid){
+    	//formSelects.btns("roomid", ["select", "remove"], {show: "", space: "10px"});
+        formSelects.data("roomid", "server", {
+          url: _parseAPIURL("/room/roomList?pageSize=999&pageNum=1"),
+          keyName: 'roomname',            //自定义返回数据中name的key, 默认 name
+          keyVal: 'id', 
+          beforeSuccess: function(id, url, searchVal, result) {
+            //返回数据去掉数据外层的code, msg, data
+            return result.data;
+          },
+          success: function(id, url, searchVal, result) {
+            // console.log('id: userids 参会人员成功返回数据!!!');
+            formSelects.value("roomid", [roomid]);
+          }
+        });
+    }
+    
+    
+      function renderForm(data) {
+        form.val("updataForm", {
+          // "name": "value"
+          organizer: data.organizer,
+          leadlength: data.leadlength,
+          meetingtheme: data.meetingtheme,
+          meetingdate: data.meetingdate,
+          starttime: data.starttime,
+          endtime: data.endtime,
+        });
+        // console.log(data);
+        // console.log(uids);
+      }
+
+      function renderSelect(uids) {
+    	  console.log("111")
+        //获取参会人员下拉复选菜单数据
+        formSelects.btns("userids", ["select", "remove"], {show: "", space: "10px"});
+        formSelects.data("userids", "server", {
+          url: _parseAPIURL("/sysuser/queryDepartMans"),
+          //url: _parseAPIURL("/group/groupListAndUser"),
+          beforeSuccess: function(id, url, searchVal, result) {
+            //返回数据去掉数据外层的code, msg, data
+            return result.data;
+          },
+          success: function(id, url, searchVal, result) {
+            // console.log('id: userids 参会人员成功返回数据!!!');
+            formSelects.value("userids", uids);
+          }
+        });
+      }
+
+      function renderSelect2(uids) {
+    	  console.log("222")
+        //获取参会人员下拉复选菜单数据
+        formSelects.btns("userids", ["select", "remove"], {show: "", space: "10px"});
+        formSelects.data("userids", "server", {
+          //url: _parseAPIURL("/sysuser/queryDepartMans"),
+          url: _parseAPIURL("/group/groupListAndUser"),
+          beforeSuccess: function(id, url, searchVal, result) {
+            //返回数据去掉数据外层的code, msg, data
+            return result.data;
+          },
+          success: function(id, url, searchVal, result) {
+            // console.log('id: userids 参会人员成功返回数据!!!');
+            formSelects.value("userids", uids);
+          }
+        });
+      }
+      
+      if (meetingId) {
+    	  
+        // console.log("修改会议信息");
+        $('.submitBtn')[0].innerText = '保存';
+        //获取信息
+        $.ajax({
+          url: _parseAPIURL("/meeting/queryById"),
+          type: "GET",
+          cache: false,
+          dataType: "JSON",
+          data: { meetingid: meetingId },
+          success: function(result) {
+            console.log(result.code, result.msg);
+            // console.log(result.data);
+            const uids = result.data.list.map(function(e) {
+              return e.userid;
+            });
+            // 更新渲染form
+            renderForm(result.data);
+
+            loadroom(result.data.roomid);
+            renderSelect(uids);
+            
+            form.on('radio(radio)', function(data){
+          	   console.log(data.value); //得到radio原始DOM对象
+          	   if(data.value==1){
+          		 renderSelect(uids);
+          	   }else if(data.value==2){
+          		 renderSelect2(uids);
+          	   }
+          	 });
+          },
+          error: function(result) {
+            console.log(result.status, result.statusText);
+            console.log(result);
+          }
+        });
+
+        //表单提交监听
+        form.on("submit(updataForm)", function(data) {
+          // console.log("表单数据", data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+          // console.log("日期", data.field.meetingtime);
+          data.field.userids = formSelects.value("userids", "val");
+          data.field.meetingplace = formSelects.value("roomid", "nameStr");
+          //console.log(formSelects.value("roomid", "roomname"))
+          data.field.id = meetingId;
+          // console.log("提交数据", data.field);
+          //ajax更新数据
+          $.ajax({
+            url: _parseAPIURL("/meeting/update"),
+            type: "POST",
+            dataType: "JSON",
+            data: data.field,
+            success: function(result) {
+              // console.log(result.status, result.statusText);
+              // console.log(result);
+              layer.msg(result.msg);
+              if (result.code === "SUCCESS") {
+                // layer.msg('修改成功！');
+                setTimeout(function() {
+                  window.parent.layer.closeAll();
+                }, 1000);
+              } else {
+                // layer.msg('修改失败！');
+                console.log(result.status, result.statusText);
+                console.log(result);
+              }
+            },
+            error: function(result) {
+              layer.msg("ajax请求失败！");
+              console.log(result.status, result.statusText);
+              console.log(result);
+            }
+          });
+
+          return false; //阻止表单跳转。
+        });
+      } else {
+        // console.log("新增会议");
+         renderSelect();
+        form.on('radio(radio)', function(data){
+          	   console.log(data.value); //得到radio原始DOM对象
+          	   if(data.value==1){
+          		 renderSelect();
+          	   }else if(data.value==2){
+          		 renderSelect2();
+          	   }
+          	 });
+        
+        loadroom();
+        //表单提交监听
+        form.on("submit(updataForm)", function(data) {
+          data.field.userids = formSelects.value("userids", "val");
+          data.field.meetingplace = formSelects.value("roomid", "nameStr");
+          // console.log("提交数据", data.field);
+          //ajax插入数据
+          $.ajax({
+            url: _parseAPIURL("/meeting/add"),
+            type: "POST",
+            dataType: "JSON",
+            data: data.field,
+            success: function(result) {
+              // console.log(result.status, result.statusText);
+              // console.log(result);
+              layer.msg(result.msg);
+              if (result.code === "SUCCESS") {
+                setTimeout(function() {
+                  window.parent.layer.closeAll();
+                }, 1000);
+              } else {
+                console.log(result.status, result.statusText);
+                console.log(result);
+              }
+            },
+            error: function(result) {
+              layer.msg("ajax请求失败！");
+              console.log(result.status, result.statusText);
+              console.log(result);
+            }
+          });
+
+          return false; //阻止表单跳转。
+        });
+      }
+    });
+  </script>
+</html>

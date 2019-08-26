@@ -1,0 +1,180 @@
+body {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	font-size: 48px;
+}
+
+ul,li,dl,dd {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.wrap {
+	width: 100%;
+	height: 100%;
+}
+.top{
+	width: 100%;
+	height: auto;
+	box-shadow: darkgrey 5px 5px 15px 2.5px ;//边框阴影
+}
+.fi
+
+.tit {
+	text-align: left;
+	margin-top: 20px;
+}
+
+#tab1 li {
+	background: #fff none repeat scroll 0 0;
+	border: 1px solid #fff;
+	float: left;
+	height: 100%;
+	line-height: 30px;
+	margin-left: -1px;
+	text-align: center;
+	width: 14.1%;
+	padding-left: 0.8px;
+	
+}
+
+.details {
+	width: 100%;
+	height: 100%;
+}
+
+p,
+img {
+	text-align: center;
+}
+
+.left {
+	float: left;
+	background-color: #fff;
+	height: 100%;
+}
+
+.right {
+	float: left;
+	background-color: #d3b788;
+	height: 100%;
+}
+
+.left_top,
+.left_center,
+.left_foot {
+	height: 30%;
+	text-align: center;
+}
+
+#tab1 li.active {
+	border-bottom: 1px solid #fff;
+	background: #d3b788;
+}
+
+.day_box,
+.food_box1,
+.food_box2,
+.food_box3,
+.food_box4,
+.food_box5,
+.food_box6,
+.food_box7 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time11_1,
+.time12_1,
+.time13_1,
+.time14_1,
+.time15_1,
+.time16_1,
+.time17_1 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time21_2,
+.time22_2,
+.time23_2,
+.time24_2,
+.time25_2,
+.time26_2,
+.time27_2 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time31_3,
+.time32_3,
+.time33_3,
+.time34_3,
+.time35_3,
+.time36_3,
+.time37_3 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time41_4,
+.time42_4,
+.time43_4,
+.time44_4,
+.time45_4,
+.time46_4,
+.time47_4 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time51_5,
+.time52_5,
+.time53_5,
+.time54_5,
+.time55_5,
+.time56_5,
+.time57_5 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time61_6,
+.time62_6,
+.time63_6,
+.time64_6,
+.time65_6,
+.time66_6,
+.time67_6 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}
+
+.time71_7,
+.time72_7,
+.time73_7,
+.time74_7,
+.time75_7,
+.time76_7,
+.time77_7 {
+	width: 90%;
+	display: none;
+	/*让box都隐藏*/
+	margin-top: -1px;
+}

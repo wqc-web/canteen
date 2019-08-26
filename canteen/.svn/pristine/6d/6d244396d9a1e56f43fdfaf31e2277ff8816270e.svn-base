@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>添加/修改菜单</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/layui/css/layui.css">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/lau/lau.css">
+        <link href="${Session.BASE_URL}/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/css/common.css">
+        <link rel="stylesheet" href="${Session.BASE_URL}/plugins/formSelects/formSelects-v4.css" />
+        <style>
+            body{
+                background: #ffffff;
+            }
+            .demo1{
+                width: 25%;
+                text-align: right;
+                line-height: 38px;
+            }
+            .layui-card-body{
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="layui-card" style="padding-left: 20px;">
+            <div class="layui-card-body">
+                <div class="demo1">菜名：</div>
+                <div style="width: 65%;">
+                    <input id="menuName" type="text" class="layui-input" style="width:100%;margin-left: 20px;border-radius: 5px;" placeholder="请输入菜名">
+                </div>
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-upload" style="margin: auto;">
+                    <button type="button" class="layui-btn" id="test1" style="background: #445A81;">重新上传图片</button>
+                    <div class="layui-upload-list">
+                        <img class="layui-upload-img" id="demo1" style="height: 80px;" src="${Session.BASE_URL}/img/add.png">
+                        <p id="demoText"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-card-body" style="    text-align: center;">
+                <button id=""  onclick="saves()" class="layui-btn layui-btn-normal layui-btn-sm"  style="background-color:#445A81;width: 100px;border-radius: 5px;margin: 0 auto;">确定</button>
+            </div>
+        </div>
+
+        <script src="${Session.BASE_URL}/lying/layui/layui.js"></script>
+        <script src="${Session.BASE_URL}/plugins/jquery-1.11.0.min.js"></script>
+
+        <script>
+            var menuPicUrl="";
+            $(function(){
+                var id='${id}';
+                if(id!="" && id!=null){
+                    $("#menuName").val('${name}');
+                    $('#demo1').attr('src', "${Session.BASE_URL}/"+'${pictureUrl}');
+                    console.log('${pictureUrl}')
+                    menuPicUrl = '${pictureUrl}';
+                }
+            })
+
+            layui.use('upload', function() {
+                var $ = layui.jquery
+                    , upload = layui.upload;
+
+                //普通图片上传
+                var uploadInst = upload.render({
+                    elem: '#test1'
+                    ,url: '${Session.BASE_URL}/file/upload'
+                    ,before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function(index, file, result){
+                            $('#demo1').attr('src', result); //图片链接（base64）
+                        });
+                    }
+                    ,done: function(res){
+                        //上传成功
+                        if(res.code == 'SUCCESS'){
+                            console.log(res)
+                            menuPicUrl=res.data[0].filepath;
+                            return layer.msg('上传成功');
+                        }else{
+                            //如果上传失败
+                            return layer.msg('上传失败');
+                        }
+
+                    }
+                    ,error: function(){
+                        //演示失败状态，并实现重传
+                        var demoText = $('#demoText');
+                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload" style="background: #445A81;">重试</a>');
+                        demoText.find('.demo-reload').on('click', function(){
+                            uploadInst.upload();
+                        });
+                    }
+                });
+
+            });
+            var post_flag = false;
+
+            function saves(){
+                //如果正在提交则直接返回，停止执行
+                if(post_flag) return;
+                //标记当前状态为正在提交状态
+                post_flag = true;
+
+                var menuName=$("#menuName").val();
+                var id='${id}';
+                var data="";
+                var url="";
+                if(id!="" && id!=null){
+                    data={
+                        'id':id,
+                        'pictureUrl':menuPicUrl,
+                        'name':menuName
+                    }
+                    console.log(data)
+                    url = "${Session.BASE_URL}/menu/updateMenu"
+                }else{
+                    data={
+                        'menuName':menuName,
+                        'menuPicUrl':menuPicUrl,
+                        'timeSlotId':'${timeSlotId}',
+                        'menuTypeId':'${menuTypeId}'
+                    }
+                    console.log(data)
+                    url = "${Session.BASE_URL}/menu/addMenu"
+                }
+
+                if(menuName==null || menuName==""){
+                    window.parent.layui.layer.msg("请填写菜名！");
+                }else{
+                    //提交
+                    $.ajax({
+                        url:url,
+                        type : 'POST',
+                        data:data,
+                        success:function (result) {
+                            if(result.code=='200'){
+                                setTimeout("close()", 1000);
+                            }
+                            window.parent.layui.layer.msg(result.msg);
+                            post_flag =false; //在提交完成后将标志标记为可提交状态
+                        },
+                        error: function(){
+                            post_flag =false; //AJAX失败也需要将标志标记为可提交状态
+                        }
+                    })
+                }
+
+            }
+
+
+            function close(){
+                window.parent.location.reload();
+            }
+        </script>
+
+    </body>
+</html>

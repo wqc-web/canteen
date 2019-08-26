@@ -1,0 +1,118 @@
+package com.zhongzhou.controller.canteen;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.zhongzhou.dto.MenuRankDto;
+import com.zhongzhou.service.canteen.MenuRankService;
+import com.zhongzhou.utils.Consts;
+import com.zhongzhou.utils.HttpResult;
+import com.zhongzhou.utils.SelfDateUtil;
+
+/**
+ *	菜单排名
+ */
+@RequestMapping(value = "/rank")
+@Controller
+public class menuRankController {
+
+	/**
+	 *  注入 service对象
+	 */
+	@Autowired
+	MenuRankService menuRankService;
+	
+	
+	
+	/**
+	 *	格式化日期类型
+	 */
+	SimpleDateFormat sdfYMDHMS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	SimpleDateFormat sdfYMD = new SimpleDateFormat("yyyy-MM-dd");
+	
+	
+	/**
+	 *	查询菜单排名 分页 (好评 差评 ) 
+	 *	参数 : timeSlotId 和 menuTypeId
+	 *	返回 : List<MenuDto>
+	 */
+	@RequestMapping(value="/queryMenuRank",method={RequestMethod.POST,RequestMethod.GET})
+	@ResponseBody
+	public HttpResult queryMenuRank(String dateStr, Integer goodState, Integer pageNumber, Integer pageSize, HttpSession session,HttpServletRequest request) {
+		
+		Integer startPage = (pageNumber - 1) * pageSize;
+		Integer endPage = pageSize;
+		
+		
+		Date[] dates = getDateTime(dateStr);
+		
+		String startTime = sdfYMDHMS.format(dates[0]);
+		String endTime = sdfYMDHMS.format(dates[1]);
+		
+		List<MenuRankDto> list =  menuRankService.queryMenuRank(goodState, startTime, endTime, startPage, endPage);
+		
+		//开始添加序列
+		for (int i = 0; i < list.size(); i++) {
+			String  rank = "NO." + (startPage + i + 1) ;
+			list.get(i).setRank(rank);
+		}
+		
+		
+		Long count =  menuRankService.queryMenuRankCount(goodState, startTime, endTime);
+		
+		HttpResult httpResult = new HttpResult(Consts.Code_Success, "查询成功", list);
+		httpResult.setCount(count);
+		
+		return httpResult;
+	}
+	
+	
+	
+	
+	/**
+	 *	得到开始日期和结束日期
+	 */
+	public Date[] getDateTime(String dateStr) {
+		String now = "本日";
+		String week = "本周";
+		String month = "本月";
+		
+		Date[] dates = new Date[2];
+		
+		//本日
+		if(now.equals(dateStr)) {
+			dates[0] = SelfDateUtil.getDayBegin();
+			dates[1] = SelfDateUtil.getDayEnd();
+			
+		//本周
+		}else if(week.equals(dateStr)) {
+			dates[0] = SelfDateUtil.getBeginDayOfWeek();
+			dates[1] = SelfDateUtil.getEndDayOfWeek();
+			
+		//本月
+		}else if(month.equals(dateStr)) {
+			dates[0] = SelfDateUtil.getBeginDayOfMonth();
+			dates[1] = SelfDateUtil.getEndDayOfMonth();
+			
+			
+		//不存在
+		}else {
+			return null;
+		}
+		
+		return dates;
+	}
+	
+	
+	
+	
+}

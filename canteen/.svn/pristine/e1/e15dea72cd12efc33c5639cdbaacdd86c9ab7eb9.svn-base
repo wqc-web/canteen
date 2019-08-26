@@ -1,0 +1,47 @@
+package com.zhongzhou.service.canteen.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zhongzhou.dao.canteen.UserDao;
+import com.zhongzhou.entity.canteen.Corporate;
+import com.zhongzhou.entity.canteen.User;
+import com.zhongzhou.service.canteen.UserService;
+
+/**
+ * 用户service  impl
+ *
+ */
+@Service
+public class UserServiceImpl implements UserService{
+
+	/**
+	 *  注入 dao对象
+	 */
+	@Autowired
+	UserDao userDao;
+	
+	/**
+	 *  查询对象 返回对象
+	 */
+	@Override
+	public User queryUser(User user) {
+		return userDao.queryUser(user);
+	}
+	
+	@Override
+	public Corporate queryCorporateInfo(){
+		return userDao.queryCorporateInfo();
+	}
+	
+	public User queryUserByWeixinid(String weixinid){
+		return userDao.queryUserByWeixinid(weixinid);
+	}
+	public long insert(User user){
+		return userDao.insert(user);
+	}
+	
+	
+	
+	
+}

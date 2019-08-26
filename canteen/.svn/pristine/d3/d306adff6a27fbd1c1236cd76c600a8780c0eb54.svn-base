@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.NoticeDao">
+  
+	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.Notice" useGeneratedKeys="true" keyProperty="id">
+	    insert into notice
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="message != null">
+	        message,
+	      </if>
+	      <if test="addtime != null">
+	        addtime,
+	      </if>
+	       <if test="flag != null">
+	        flag,
+	      </if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="message != null">
+	        #{message},
+	      </if>
+	      <if test="addtime != null">
+	        #{addtime},
+	      </if>
+	       <if test="flag != null">
+	        #{flag},
+	      </if>
+	    </trim>
+	</insert>
+	
+	<delete id="deleteId">
+	  delete from notice
+	  where id = #{id}
+	</delete>
+  
+  
+  	<delete id="deleteObj">
+	  	delete from notice
+	  	
+		<where>
+			<trim prefix="" suffix="" suffixOverrides="and">
+			     <if test="id != null">
+			       id = #{id}  and  
+			     </if>
+			     <if test="message != null">
+			       message = #{message}  and  
+			     </if>
+			     <if test="addtime != null">
+			       addtime = #{addtime}  and  
+			     </if>
+			      <if test="flag != null">
+			       flag = #{flag}  and  
+			     </if>
+			</trim>
+		</where>
+		
+	</delete>
+  
+  <select id="queryId"   resultType="com.zhongzhou.entity.canteen.Notice">
+		select * from notice
+		where id = #{id}
+	</select>
+	
+	
+	<select id="queryList"  resultType="com.zhongzhou.entity.canteen.Notice">
+		select  *  from notice
+	</select>
+  
+  	<select id="queryCount"  resultType="java.lang.Long">
+		select  count(*)  from  notice 
+	</select>
+  
+  	<select id="queryListPage"  resultType="com.zhongzhou.entity.canteen.Notice">
+		select * from  notice 
+		limit  #{startpage} , #{endpage}
+	</select>
+	
+	
+	<select id="queryFlagAscList"  resultType="com.zhongzhou.entity.canteen.Notice">
+		select * from  notice 
+		where flag = #{flag}
+		order by  id  asc
+	</select>
+	
+	<select id="queryFlagDescList"  resultType="com.zhongzhou.entity.canteen.Notice">
+		select * from  notice 
+		where flag = #{flag}
+		order by  id  desc
+	</select>
+  
+	 <update id="update" parameterType="com.zhongzhou.entity.canteen.Menu">
+	       update  notice
+	       <set>
+	       	<trim prefix="" suffix="" suffixOverrides=",">
+				<if test="message != null">
+					message = #{message},
+				</if>
+				<if test="addtime != null">
+					addtime = #{addtime},
+				</if>
+				<if test="flag != null">
+					flag = #{flag},
+				</if>
+			</trim>
+	       </set>
+	       where id = #{id}
+	</update>
+  
+</mapper>

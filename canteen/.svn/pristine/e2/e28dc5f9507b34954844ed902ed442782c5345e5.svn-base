@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>修改每周菜谱</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/layui/css/layui.css">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/lau/lau.css">
+    <link href="${Session.BASE_URL}/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/css/common.css">
+    <link rel="stylesheet" href="${Session.BASE_URL}/plugins/formSelects/formSelects-v4.css" />
+    <style>
+        body{
+            background: #ffffff;
+        }
+        .demo1{
+            width: 25%;
+            text-align: right;
+            line-height: 38px;
+        }
+        .layui-card-body{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+<div class="layui-card" style="padding-left: 20px;">
+    <div class="layui-card-body">
+        <div class="layui-card-body">
+            <div class="demo1">菜名：</div>
+            <div style="width: 80%;">
+                <div class="layui-input-inline" data-type="searchs" style="width: 100%;margin-left: 20px;">
+                    <select  name="selectType1"
+                             xm-select="selectType1"
+                             xm-select-skin="normal"
+                             xm-select-search=""
+                             xm-select-height="36px"
+                             xm-select-show-count="1">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-card-body" style="    text-align: center;" onclick="saves()">
+        <button id="" class="layui-btn layui-btn-normal layui-btn-sm"  style="background-color:#445A81;width: 100px;border-radius: 5px;margin: 0 auto;">确定</button>
+    </div>
+</div>
+
+<script src="${Session.BASE_URL}/lying/layui/layui.js"></script>
+<script src="${Session.BASE_URL}/plugins/jquery-1.11.0.min.js"></script>
+<script src="${Session.BASE_URL}/plugins/formSelects/formSelects-v4.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var timeSlotId = '${timeSlotId}';
+    var weeklyId = '${weeklyId}';
+
+    layui.use('laydate', function(){
+        var formSelects = layui.formSelects;
+
+        // 配置下拉菜单
+        formSelects.btns({show: 'name', space: '10px'});
+        formSelects.config('selectType1', {
+            type: 'get',                //请求方式: post, get, put, delete...
+            data: {},                   //自定义除搜索内容外的其他数据
+            //搜索地址, 默认使用xm-select-search的值, 此参数优先级高
+            searchUrl: '${Session.BASE_URL}admin/v1/enterprise',
+            searchName: 'search',      //自定义搜索内容的key值
+            keyName: 'enterprisename',            //自定义返回数据中name的key, 默认 name
+            keyVal: 'id',               //自定义返回数据中value的key, 默认 value
+            delay: 500,                 //搜索延迟时间, 默认停止输入500ms后开始搜索
+            direction: 'down',          //多选下拉方向, auto|up|down
+            response: {
+                statusCode: "SUCCESS",          //成功状态码
+                statusName: 'code',     //code key
+                msgName: 'msg',         //msg key
+                dataName: 'data'        //data key
+            },
+            success: function(id, url, searchVal, result){      //使用远程方式的success回调
+            },
+            error: function(id, url, searchVal, err){           //使用远程方式的error回调
+            },
+            beforeSuccess: function(id, url, searchVal, result){        //success之前的回调, 干嘛呢? 处理数据的, 如果后台不想修改数据, 你也不想修改源码, 那就用这种方式处理下数据结构吧
+                if(result.count === 1){
+                    result.data[0].selected = "selected";
+                }
+                return result;
+            },
+            // beforeSuccess: function(id, url, searchVal, result){        //success之前的回调, 干嘛呢? 处理数据的, 如果后台不想修改数据, 你也不想修改源码, 那就用这种方式处理下数据结构吧
+            //
+            //     return result;  //必须return一个结果, 这个结果要符合对应的数据结构
+            // },
+            beforeSearch: function(id, url, searchVal){         //搜索前调用此方法, return true将触发搜索, 否则不触发
+                return true;
+            },
+            clearInput: false          //当有搜索内容时, 点击选项是否清空搜索内容, 默认不清空
+        }, true);
+    })
+
+</script>
+
+</body>
+</html>

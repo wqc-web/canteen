@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.WeeklyMenuListDao">
+  
+	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.WeeklyMenuList" useGeneratedKeys="true" keyProperty="id">
+	    insert into weekly_menu_list
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="weeklyId != null">
+	        weekly_id,
+	      </if>
+	      <if test="timeSlotId != null">
+	        time_slot_id,
+	      </if>
+	      <if test="menuTypeId != null">
+	        menu_type_id,
+	      </if>
+	      <if test="menuId != null">
+	        menu_id,
+	      </if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="weeklyId != null">
+	        #{weeklyId},
+	      </if>
+	      <if test="timeSlotId != null">
+	        #{timeSlotId},
+	      </if>
+	      <if test="menuTypeId != null">
+	        #{menuTypeId},
+	      </if>
+	      <if test="menuId != null">
+	        #{menuId},
+	      </if>
+	    </trim>
+	</insert>
+	
+	<delete id="deleteId">
+	  delete from weekly_menu_list
+	  where id = #{id}
+	</delete>
+	  
+	<delete id="deleteObj">
+	  delete from weekly_menu_list
+	  
+		<where>
+			<trim prefix="" suffix="" suffixOverrides="and">
+			     <if test="id != null">
+			       id = #{id}  and  
+			     </if>
+			     <if test="weeklyId != null">
+			      		weekly_id = #{weeklyId}  and  
+			     </if>
+			     <if test="timeSlotId != null">
+			       time_slot_id = #{timeSlotId}  and  
+			     </if>
+			     <if test="menuTypeId != null">
+			       	menu_type_id = #{menuTypeId}  and  
+			     </if>
+			     <if test="menuId != null">
+			       	menu_id = #{menuId}  and  
+			     </if>
+			</trim>
+		</where>
+	  
+	</delete>  
+	  
+</mapper>

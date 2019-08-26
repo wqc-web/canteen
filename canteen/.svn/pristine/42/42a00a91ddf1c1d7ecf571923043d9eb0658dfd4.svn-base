@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="${Session.BASE_URL}/js/time.js" ></script>
+		<!--<script src="js/mui.min.js"></script>-->
+		<link href="${Session.BASE_URL}/css/mui.min.css" rel="stylesheet" />
+		<!--<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>-->
+		<title></title>
+		<style type="text/css">
+			*{
+				width:100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				/*color: #000000;*/
+				/*font-size: 48px;*/
+			}
+			.daystyle {
+				font-weight: bold !important;
+				color: #d7b987 !important;
+			}
+			.cookstyle{
+				color: #ffba02;
+				border:1px solid #ffba02
+			}
+			.mui-title {
+				background-color: #F0AD4E;
+				color: white;
+			}
+			
+			.h1 {
+				background-color: burlywood;
+				color: white;
+				text-align: center;
+				margin-top: 0%;
+			}
+			
+			.control {
+				border-color: sandybrown;
+			}
+			
+			.control1 {
+				border-color: white;
+			}
+			
+			.acontrol {
+				border-color: white;
+			}
+			
+			.mui-table-view:before {
+				height: 0
+			}
+			
+			.mui-table-view:after {
+				height: 0
+			}
+			
+			.input1 {
+				height: 32px;
+				margin-left: 20%;
+				border-radius: 15px;
+				border-color: #F4A460;
+			}
+			
+			.button1 {
+				margin-right: 1%;
+				border-radius: 15px;
+				border-color: #DEB887;
+				background-color: #DEB887;
+				width: 20%;
+			}
+			
+			.u1 {
+				border-radius: 10px;
+				display: line;
+			}
+			
+			.a1 {}
+			.mui-tab-label{
+				height:21px
+			}
+			
+			
+			.leftMenuList{
+				width:90%;
+				height:25%;
+				border-right: 1px solid #dddddd;
+				border-top: 1px solid white;
+				border-bottom: 1px solid #dddddd;
+				border-bottom-right-radius: 8px;
+				background-color: #FFFFFF;
+			}
+			
+			.leftMenuListSelect{
+				width:90%;
+				height:25%;
+				border: 0px;
+				background-color: #f3f3f3;
+			}
+			
+		</style>
+		<script src="${Session.BASE_URL}/js/jquery-2.1.0.js" ></script>
+		<script>
+			
+			//周几 id 1 2 3 4 5 6 7
+			var weeklyId = 1;
+			
+			//早 中 晚 id 1 2 3
+			var soltId = 1;
+			
+			//菜单类型 id
+			var menuTypeId = 1;
+			
+			//菜单id
+			var menuId = 1;
+			
+			//周几 1 2 3 4 5 6 7
+			function weekly(id){
+				weeklyId = id;
+				
+				menuTypeDetail(menuTypeId);
+			}
+
+			
+			$(function(){
+				
+				$("#day1").addClass('daystyle');
+				
+				//	查询 哪个时间段
+				 $.ajax({
+	                url:"${Session.BASE_URL}/menu/queryTimeSlot",
+	                type : 'POST',
+	                data:{
+	                  
+	                },
+	                success:function (result) {
+	                	
+	                	//如果不在时间段
+	                	if(!result.data){
+	                		$('#morning').click();
+	                		soltId = 1;
+	                		
+                		//在时间段
+	                	}else{
+	                		soltId =  result.data.id;
+	                		
+	                		if(soltId == 1){
+	                			$('#morning').click();
+	                		}else if(soltId == 2){
+	                			$('#afternoon').click();
+	                		}else if(soltId == 3){
+	                			$('#nigth').click();
+	                		}else{
+	                			$('#morning').click();
+		                		soltId = 1;
+	                		}
+	                	}
+	                    
+	                	
+	                	
+	                }
+	            })
+				
+				
+				
+			})
+			
+			
+			//早 中 晚 1 2 3
+			function leftMenuList(solt){
+				$("#leftImg1").attr("src","${Session.BASE_URL}/img/早餐.png");
+				$("#leftFont1").css({color:"black"})
+				$("#morning").css({"border-left": "0px solid goldenrod"})
+				$("#leftImg2").attr("src","${Session.BASE_URL}/img/中餐.png");
+				$("#leftFont2").css({color:"black"})
+				$("#afternoon").css({"border-left": "0px solid goldenrod"})
+				$("#leftImg3").attr("src","${Session.BASE_URL}/img/晚餐.png");
+				$("#leftFont3").css({color:"black"})
+				$("#nigth").css({"border-left": "0px solid goldenrod"})
+				
+				//清除样式				
+				$("#morning").removeClass("leftMenuList");
+				$("#afternoon").removeClass("leftMenuList");
+				$("#nigth").removeClass("leftMenuList");
+				
+				$("#morning").removeClass("leftMenuListSelect");
+				$("#afternoon").removeClass("leftMenuListSelect");
+				$("#nigth").removeClass("leftMenuListSelect");
+				
+				$("#morning").addClass("leftMenuList");
+				$("#afternoon").addClass("leftMenuList");
+				$("#nigth").addClass("leftMenuList");
+				
+				
+				soltId = solt;
+				
+				if(solt == 1){
+					$("#leftImg1").attr("src","${Session.BASE_URL}/img/早餐-1.png");
+					$("#leftFont1").css({"color":"#d7b987"})
+					$("#morning").css({"border-left": "5px solid goldenrod"})
+					menuTypeQuery(1);
+					
+					$("#morning").addClass("leftMenuListSelect");
+				
+				}
+				if(solt == 2){
+					$("#leftImg2").attr("src","${Session.BASE_URL}/img/中餐-1.png");
+					$("#leftFont2").css({"color":"#d7b987"})
+					$("#afternoon").css({"border-left": "5px solid goldenrod"})
+					menuTypeQuery(2);
+					
+					$("#afternoon").addClass("leftMenuListSelect");
+				
+				}
+				if(solt == 3){
+					$("#leftImg3").attr("src","${Session.BASE_URL}/img/晚餐-1.png");
+					$("#leftFont3").css({"color":"#d7b987"})
+					$("#nigth").css({"border-left": "5px solid goldenrod"})
+					menuTypeQuery(3);
+					
+					$("#nigth").addClass("leftMenuListSelect");
+				}
+			}
+			
+			
+			//菜单类型 查询， 动态添加菜单类型
+			function menuTypeQuery(solt){
+				//访问网络请求 传递 solt 拿到菜单类型 
+				 $.ajax({
+	                url:"${Session.BASE_URL}/menuType/querySlotMenuType",
+	                type : 'POST',
+	                data:{
+	                    'timeSlotId' : solt
+	                },
+	                success:function (result) {
+	                	
+	                	$("#menuTypeList").html("")
+	    				var li = "";
+	                	
+	                    for(var i =0;i<result.length;i++){
+	                    	
+	                    	li += '<div class="menuType" onclick="menuTypeDetail('+ result[i].menuTypeId +')" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.8rem;">'+ result[i].menuTypeName +'</div>'  
+
+	                    }
+	                    
+	                    $("#menuTypeList").html(li)
+	                    
+	                    $($('.menuType')[0]).click()
+	                    
+	                }
+	            })
+				
+			}
+			
+			//菜单类型 详情
+			function menuTypeDetail(Id){
+				menuTypeId = Id;
+				
+				var goodTime = getNowFormatDate();
+				
+				//访问网络请求   拿到菜单  
+				$.ajax({
+	                url:"${Session.BASE_URL}/menu/appMenuList",
+	                type : 'POST',
+	                data:{
+	                    'menuTypeId' : menuTypeId
+	                    , 'timeSlotId' : soltId
+	                    , 'weeklyId' : weeklyId
+	                    , 'goodTime' : goodTime
+	                },
+	                success:function (result) {
+	                	
+	                	var data = result.data;
+	                	
+	                	$("#menuList").html("")
+	    				
+	    				var li = "";
+	    				
+	    				for (var i = 0; i <data.length ; i++) {
+	    					
+	    					var imgUrl = "${Session.BASE_URL}/" + data[i].menuPicUrl;
+	    					var menuName = data[i].menuName;
+	    					
+	    					var menuId = data[i].menuId;
+	    					
+	    					var goodState = data[i].goodState;
+	    					var goodStateLi = "";
+	    					
+	    					
+	    					i = i + 1;
+	    					
+	    					//还有
+	    					if(i < data.length){
+	    					
+	    						var imgUrl2 = "${Session.BASE_URL}/" + data[i].menuPicUrl;
+		    					var menuName2 = data[i].menuName;
+		    					
+		    					var menuId2 = data[i].menuId;
+		    					
+		    					var goodState2 = data[i].goodState;
+		    					
+		    					var goodStateLi2 = "";
+		    					
+		    					//1 好评 2 差评
+		    					
+		    					
+		    					if(goodState == 1){
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)"  src="${Session.BASE_URL}/img/好评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else if(goodState == 2){
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else{
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    					
+		    					}
+		    					
+		    					
+									if(goodState2 == 1){
+		    						
+		    						goodStateLi2 +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId2 + ' , this)"  src="${Session.BASE_URL}/img/好评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId2 + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else if(goodState2 == 2){
+		    						
+		    						goodStateLi2 +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId2 + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId2 + '  , this)" src="${Session.BASE_URL}/img/差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else{
+		    						
+		    						goodStateLi2 +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId2 + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId2 + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    					
+		    					}
+		    					
+		    					
+		    					li +=	'<div style="100%;height:185px;display: flex;flex-direction: row;display: flex;justify-content: space-around;align-items: center; margin-bottom: 4%;"> '
+		    						+		'<div style="width:46%;height:100%;box-shadow:0 5px 5px 0px gray;border-bottom-left-radius: 8px;border-radius: 8px; background-color: #FFFFFF;">'			
+		    						+			'<div style="width:100%;height:10%;"></div>'				
+		    						+			'<div style="width:100%;height:45%;display: flex;justify-content: center;align-items: center;">'			
+		    						+				'<img   src="' + imgUrl + '" style="width: 70%;height:100%" />'
+		    						+			'</div>'
+		    						+			'<div style="width:100%;height:20%;display: flex;justify-content: center;align-items: center;">  '+ menuName +'  </div>'
+		    						+			'<div style="width:100%;height:3%;"></div>'
+		    						+			'<div style="width:100%;height:22%;">'
+		    						+				'<div style="width: 100%; height: 1px; background-color: #e6e6e6;"></div>'
+		    						+				goodStateLi
+		    						+			'</div>'
+		    						+		'</div>	'
+		    						+		'<div style="width:46%;height:100%;box-shadow:0 5px 5px 0px gray;border-bottom-left-radius: 8px;border-radius: 8px; background-color: #FFFFFF;">'			
+		    						+			'<div style="width:100%;height:10%;"></div>'				
+		    						+			'<div style="width:100%;height:45%;display: flex;justify-content: center;align-items: center;">'			
+		    						+				'<img   src="' + imgUrl2 + '" style="width: 70%;height:100%" />'
+		    						+			'</div>'
+		    						+			'<div style="width:100%;height:20%;display: flex;justify-content: center;align-items: center;">  '+ menuName2 +'  </div>'
+		    						+			'<div style="width:100%;height:3%;"></div>'
+		    						+			'<div style="width:100%;height:22%;">'
+		    						+				'<div style="width: 100%; height: 1px; background-color: #e6e6e6;"></div>'
+		    						+				goodStateLi2
+		    						+			'</div>'
+		    						+		'</div>	'
+		    						+	'</div>	'
+	    						
+	    					}else{
+	    						//没有下一个菜单
+								if(goodState == 1){
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)"  src="${Session.BASE_URL}/img/好评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else if(goodState == 2){
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    						
+		    					}else{
+		    						
+		    						goodStateLi +=	'<div style="width:100%;height:100%;display: flex;align-items: center;">'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; " >'
+		    									+			'<img  onclick="clickGood(1,  ' + menuId + ' , this)" src="${Session.BASE_URL}/img/点赞.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+		'<div style="width: 1px; height: 90%; background-color: #e6e6e6;"></div>'
+		    									+		'<div align="center"  style="width: 50%; height: 100%; ">'
+		    									+			'<img  onclick="clickGood(2,   ' + menuId + '  , this)" src="${Session.BASE_URL}/img/排名-差评.png" style="width: 30%;height: 55%; margin-top: 11%;" />'
+		    									+		'</div>'
+		    									+	'</div>'
+		    					
+		    					}
+		    					
+		    					
+								
+		    					
+		    					li +=	'<div style="100%;height:185px;display: flex;flex-direction: row;display: flex;justify-content: space-around;align-items: center; margin-bottom: 4%;"> '
+		    						+		'<div style="width:46%;height:100%;box-shadow:0 5px 5px 0px gray;border-bottom-left-radius: 8px;border-radius: 8px; background-color: #FFFFFF;">'			
+		    						+			'<div style="width:100%;height:10%;"></div>'				
+		    						+			'<div style="width:100%;height:45%;display: flex;justify-content: center;align-items: center;">'			
+		    						+				'<img   src="' + imgUrl + '" style="width: 70%;height:100%" />'
+		    						+			'</div>'
+		    						+			'<div style="width:100%;height:20%;display: flex;justify-content: center;align-items: center;">  '+ menuName +'  </div>'
+		    						+			'<div style="width:100%;height:3%;"></div>'
+		    						+			'<div style="width:100%;height:22%;">'
+		    						+				'<div style="width: 100%; height: 1px; background-color: #e6e6e6;"></div>'
+		    						+				goodStateLi
+		    						+			'</div>'
+		    						+		'</div>	'
+		    						+		'<div style="width:46%;height:100%;">'			
+		    						+		'</div>	'
+		    						+	'</div>	'
+	    						
+	    					}
+	    					
+	    					
+	    					
+	    					
+	    					
+	    					
+	    						
+	    				}
+	    				
+	    				$("#menuList").html(li)
+	                }
+	            })
+				//
+				
+				
+				//demo data
+				
+			}
+			
+			
+			//点赞
+			//goodState 1 好评 2 差评
+			//id 菜单id			
+	   		function clickGood(goodState , id , obj) {
+	   			
+	   			menuId = id;
+	   			
+	   			
+	   			
+	   			
+	   			
+	   			var goodTime = getNowFormatDate();
+	   			
+	   		 	$.ajax({
+	                url:"${Session.BASE_URL}/menu/appMenuClickGood",
+	                type : 'POST',
+	                data:{
+	                    'menuId' : menuId
+	                    ,'goodTime' : goodTime
+	                    ,'goodState' : goodState
+	                },
+	                success:function (result) {
+	                	var data = result.data;
+	                	
+	                	
+	                	//1 好评
+	    	   			if(data.goodState == 1){
+	    	   				obj.src="${Session.BASE_URL}/img/好评.png"
+	    	   				
+   	   						$(obj).parent().next().next().find('img')[0].src = "${Session.BASE_URL}/img/排名-差评.png"
+    	   				//2 差评	
+	    	   			}else if(data.goodState == 2){
+	    	   				obj.src="${Session.BASE_URL}/img/差评.png"
+    	   					$(obj).parent().prev().prev().find('img')[0].src = "${Session.BASE_URL}/img/点赞.png"
+	    	   			}else{
+	    	   				
+	    	   				if(goodState == 1){
+	    	   					obj.src="${Session.BASE_URL}/img/点赞.png"
+	    	   				}
+							if(goodState == 2){
+								obj.src="${Session.BASE_URL}/img/排名-差评.png"
+	    	   				}
+							
+	    	   			}
+	    	   			
+	                	
+	                }
+	            })
+	   			
+	   			
+	   			
+	    	}
+
+			$(function() {
+				$("#day").click(function(e) {
+					$("*").removeClass('daystyle'); // 先删除所有元素的daystyle样式
+					$(e.target).addClass('daystyle'); // 然后为被点击元素添加daystyle样式
+				});
+			})
+			
+			
+			$(function() {
+				$("#menuTypeList").click(function(e) {
+					$("*").removeClass('cookstyle'); // 先删除所有元素的cookstyle样式
+					$(e.target).addClass('cookstyle'); // 然后为被点击元素添加cookstyle样式
+				});
+			})
+			
+			//获取当前时间，格式YYYY-MM-DD
+		    function getNowFormatDate() {
+		        var date = new Date();
+		        var seperator1 = "-";
+		        var year = date.getFullYear();
+		        var month = date.getMonth() + 1;
+		        var strDate = date.getDate();
+		        if (month >= 1 && month <= 9) {
+		            month = "0" + month;
+		        }
+		        if (strDate >= 0 && strDate <= 9) {
+		            strDate = "0" + strDate;
+		        }
+		        var currentdate = year + seperator1 + month + seperator1 + strDate;
+		        return currentdate;
+		    }
+		
+			//底部按钮点击
+			function menuBottomList(page){
+				
+				$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp-1.png");
+				$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl-1.png");
+				$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm-1.png");
+				
+				$("#menuBottom1").css("background","#f3f3f3");
+				$("#menuBottom2").css("background","#f3f3f3");
+				$("#menuBottom3").css("background","#f3f3f3");
+				
+				if(page == 1){
+					$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp.png");
+					$("#menuBottom1").css("background","#ffffff");
+					window.location.href = "${Session.BASE_URL}/menu/appJumpMenu";
+				}
+				
+				if(page == 2){
+					$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl.png");		
+					$("#menuBottom2").css("background","#ffffff");
+					window.location.href = "${Session.BASE_URL}/menu/appJumpMessage";
+				}
+								
+				if(page == 3){
+					$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm.png");
+					$("#menuBottom3").css("background","#ffffff");
+					window.location.href = "${Session.BASE_URL}/menu/appJumpRank";
+				}
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body style="background-color: #f3f3f3;">
+	
+		<!--  <nav class="mui-bar mui-bar-tab">
+		   <a class="mui-tab-item mui-active" href="A.html">
+		    	<img src="${Session.BASE_URL}/img/menu/cp.png" style="width: 35px; height: 35px"/>
+		   </a>
+		   <a class="mui-tab-item mui-active" href="A.html">
+		    	<img src="${Session.BASE_URL}/img/menu/pl-1.png" style="width: 35px; height: 35px"/>
+		   </a>
+		  	<a class="mui-tab-item mui-active" href="A.html">
+		    	<img src="${Session.BASE_URL}/img/menu/pm-1.png" style="width: 35px; height: 35px"/>
+		   </a>
+		  </nav> -->
+		  
+		  <div style="width: 100%; height: 6%; background-color: #f3f3f3; position: absolute; position:fixed ; bottom:0; z-index: 999;">
+		  		<div  id="menuBottom1" onclick="menuBottomList(1)"  style="width: 33%; height: 100%; float: left; background-color: white; display: flex;justify-content: center; align-items:center; ">
+					<img id="menuBottomImg1" src="${Session.BASE_URL}/img/menu/cp.png" style="width: 35px; height: 35px; "/>
+		  		</div>
+		  		<div  id="menuBottom2" onclick="menuBottomList(2)" style="width: 34%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+					<img id="menuBottomImg2" src="${Session.BASE_URL}/img/menu/pl-1.png" style="width: 35px; height: 35px"/>
+		  		</div>
+		  		<div  id="menuBottom3" onclick="menuBottomList(3)"  style="width: 33%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+					<img id="menuBottomImg3" src="${Session.BASE_URL}/img/menu/pm-1.png" style="width: 35px; height: 35px"/>
+		  		</div>
+		  </div>
+		  
+		<div class="" style="width:100%;height:100%;border: 1px solid #fff;color: #000000;">
+			<div style="width:100%;height:5%;font-size: 0.8rem;display: flex;justify-content: flex-end;align-items: center;">
+				<p id="logInfo" style="font-size: 0.8rem;display: flex;justify-content: flex-end;align-items: flex-end;"></p>
+			</div>
+			<!--
+				
+				周几列表
+				
+			-->
+			<div id="day" style="width:100%;height:5%;border: 1px solid #ffb532;display: flex;flex-direction: row;border: 1px solid goldenrod;box-shadow:1px 3px 2px 0px #d1d1d1;background-color: #fff;">
+				<div id="day1" onclick="weekly(1)"  style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周一</div>
+				<div id="day2" onclick="weekly(2)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周二</div>
+				<div id="day3" onclick="weekly(3)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周三</div>
+				<div id="day4" onclick="weekly(4)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周四</div>
+				<div id="day5" onclick="weekly(5)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周五</div>
+				<div id="day6" onclick="weekly(6)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周六</div>
+				<div id="day7" onclick="weekly(7)" style="width:14.2%;height:100%;display: flex;justify-content: center;align-items: center;font-size: 0.9rem;">周日</div>
+			</div>
+			
+			<!--
+				
+				菜单类型列表
+				
+			-->
+			<div  id="menuTypeList"  style="width:100%;height:5%;display: flex;flex-direction: row;margin-top: 3%;margin-bottom: 1%;background-color: #fff;">
+				
+				
+				
+			</div>
+			
+			
+			<div  style="width:100%;height:78%;display: flex;flex-direction: row; margin-top: 5%;">
+				
+				<!--
+					左侧  早中晚 菜单列表
+				-->
+				
+				<div id="classification" style="width:20%;height:98%;">
+					<div id="morning" class="repasttype leftMenuList" onclick="leftMenuList(1)" >
+						
+						<div style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-end;">
+							<img id="leftImg1"  src="${Session.BASE_URL}/img/早餐.png" style="width: 50%;height:40%" />
+						</div>
+						<div id="leftFont1" style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-start; margin-top: 6%;">早餐</div>
+						
+					</div>
+					<div id="afternoon" class="repasttype leftMenuList" onclick="leftMenuList(2)" >
+						<div style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-end;">
+							<img id="leftImg2" src="${Session.BASE_URL}/img/中餐.png" style="width: 50%;height:40%" />
+						</div>
+						<div id="leftFont2" style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-start; margin-top: 6%;">午餐</div>
+					</div>
+					<div id="nigth" class="repasttype leftMenuList" onclick="leftMenuList(3)" >
+						<div style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-end;">
+							<img  id="leftImg3"  src="${Session.BASE_URL}/img/晚餐.png" style="width: 50%;height:40%" />
+						</div>
+						<div id="leftFont3" style="width:100%;height:50%;display: flex;justify-content: center;align-items: flex-start; margin-top: 6%;">晚餐</div>
+					</div>
+				</div>
+				
+				
+				<!--
+					
+					菜单列表
+					
+				-->
+				
+				<div  id="menuList"   style="width:80%;height:99%; overflow:auto">
+					
+					 
+				</div>
+			</div>
+			
+			<!--<div style="width:100%;height:7%;border: 1px solid blue;display: flex;justify-content: center;align-items: center;flex-direction: row;border: 1px solid goldenrod;">
+				<div style="width:33.33%;height:100%;display: flex;justify-content: center;align-items: center;">
+					<img src="img/菜谱-1.png" style="width:33%;height:80%;" />
+				</div>
+				<div style="width:33.33%;height:100%;display: flex;justify-content: center;align-items: center;">
+					<img src="img/评论-1.png" style="width:33%;height:80%;" />
+				</div>
+				<div style="width:33.33%;height:100%;display: flex ;justify-content: center;align-items: center;">
+					<img src="img/排名-1.png" style="width:33%;height:80%;" />
+				</div>
+			</div>-->
+		</div>
+	</body>
+	
+	<!--<script type="text/javascript" src="js/mui.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.pullToRefresh.js"></script>
+	<script src="js/mui.pullToRefresh.material.js"></script>
+	
+
+	<script type="text/javascript" charset="utf-8">
+		mui.init({
+			swipeBack: true
+			//右滑关闭功能queryDriversByIsfocus
+		});
+		document.addEventListener('touchstart', function(event) {
+			    event.preventDefault();
+			}, false);
+	</script>-->
+</html>

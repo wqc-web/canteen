@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="${Session.BASE_URL}/js/mui.min.js"></script>
+		<link href="${Session.BASE_URL}/css/mui.css" rel="stylesheet" />
+		<script type="text/javascript" src="${Session.BASE_URL}/js/time.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+
+		<style type="text/css">
+			.mui-title {
+				background-color: #F0AD4E;
+				color: white;
+			}
+
+			.h1 {
+				background-color: burlywood;
+				color: white;
+				text-align: center;
+				margin-top: 0%;
+			}
+
+			.control {
+				border-color: sandybrown;
+				border:
+			}
+
+			.control1 {
+				border-color: white;
+			}
+
+			.acontrol {
+				border-color: white;
+			}
+
+			.mui-table-view:before {
+				height: 0
+			}
+
+			.mui-table-view:after {
+				height: 0
+			}
+
+			.input1 {
+				height: 32px;
+				margin-left: 20%;
+				border-radius: 15px;
+				border-color: #F4A460;
+			}
+
+			.button1 {
+
+				border-radius: 10px;
+				border-color: #D9BC82;
+				background-color: #D8BB81;
+				width: 20%;
+			}
+
+			.u1 {
+				border-radius: 10px;
+				display: line;
+
+			}
+
+			.a1 {}
+
+			#div {
+				width: 0px;
+				height: 0px;
+				background: red;
+				position: fixed;
+				top: 13%;
+				left: 50%;
+
+			}
+
+			.tab {
+				background-color: white;
+			}
+
+			.a2 {
+				display: block;
+				text-align: center;
+			}
+
+			.upimg {
+				position: relative;
+				width: 20%;
+				height: 20%;
+
+				border-radius: 5px;
+				background: url(img/add.png) no-repeat;
+				background-position: 5px;
+				background-size: 90% 90%;
+			}
+
+			.upimg input {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				opacity: 0;
+			}
+
+			.second {
+				list-style: none;
+				background: url("img/nimin_gaitubao_45x41.jpg") no-repeat;
+				padding-left: 20px;
+			}
+
+			.right_fbox {
+				width: 100%;
+				height: 8%;
+				position: fixed;
+				float: right;
+				left: 50%;
+				top: 80%;
+				z-index: 999;
+				margin-left: 30%;
+
+				border: 10px;
+				border-color: #F0F8FF;
+				border-radius: 13px;
+				opacity: 1;
+			}
+
+
+			/*移除底部或顶部三角,需要在删除此代码*/
+
+			.mui-popover .mui-popover-arrow:after {
+				width: 0px;
+			}
+
+			.mui-table-view {
+				background-color: rgba(1, 1, 1, 0);
+			}
+
+			.mui-table-view-cell {
+				padding-right: 5px;
+				margin-bottom: 15px;
+				border-radius: 10px;
+				background-color: #fff;
+				padding:5px;
+			}
+			.mui-table-view-cell.mui-active{
+				background-color:#fff
+			}
+		</style>
+	<script type="text/javascript">
+		//底部按钮点击
+				function menuBottomList(page){
+					
+					$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp-1.png");
+					$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl-1.png");
+					$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm-1.png");
+					
+					$("#menuBottom1").css("background","#f3f3f3");
+					$("#menuBottom2").css("background","#f3f3f3");
+					$("#menuBottom3").css("background","#f3f3f3");
+					
+					if(page == 1){
+						$('#menuBottomImg1').attr("src", "${Session.BASE_URL}/img/menu/cp.png");
+						$("#menuBottom1").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpMenu";
+					}
+					
+					if(page == 2){
+						$('#menuBottomImg2').attr("src", "${Session.BASE_URL}/img/menu/pl.png");		
+						$("#menuBottom2").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpMessage";
+					}
+									
+					if(page == 3){
+						$('#menuBottomImg3').attr("src", "${Session.BASE_URL}/img/menu/pm.png");
+						$("#menuBottom3").css("background","#ffffff");
+						window.location.href = "${Session.BASE_URL}/menu/appJumpRank";
+					}
+					
+					
+				}
+
+	</script>
+	</head>
+
+	<body>
+
+	 <div style="width: 100%; height: 6%; background-color: #f3f3f3; position: absolute; position:fixed ; bottom:0; z-index: 999;">
+			<div  id="menuBottom1" onclick="menuBottomList(1)"  style="width: 33%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg1" src="${Session.BASE_URL}/img/menu/cp-1.png" style="width: 35px; height: 35px; "/>
+			</div>
+			<div  id="menuBottom2" onclick="menuBottomList(2)" style="width: 34%; height: 100%; float: left; background-color: #f3f3f3; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg2" src="${Session.BASE_URL}/img/menu/pl-1.png" style="width: 35px; height: 35px"/>
+			</div>
+			<div  id="menuBottom3" onclick="menuBottomList(3)"  style="width: 33%; height: 100%; float: left; background-color: white; display: flex;justify-content: center; align-items:center; ">
+				<img id="menuBottomImg3" src="${Session.BASE_URL}/img/menu/pm.png" style="width: 35px; height: 35px"/>
+			</div>
+	  </div>
+
+
+		<div style="width:100%;height:30px;font-size: 0.8rem;display: flex;justify-content: flex-end;align-items: center;margin-bottom:2px;">
+				<div id="logInfo" style="width: 100%;height:100%;font-size: 0.8rem;background-color:#fff;display: flex;color:gray;justify-content: flex-end;align-items:center;padding-right: 20px;"></div>
+			</div>
+		<div class="mui-content">
+			<div id="page1" class="mui-control-content mui-active mui-tab-item " style="">
+				<div id="segmentedControl" class="mui-segmented-control" style="border:1px solid #D9BC82;">
+					<a id="timeNow" class=" mui-control-item mui-active tab" >
+						本日
+					</a>
+					<a id="timeWeek" class=" mui-control-item  tab">
+						本周
+					</a>
+					<a id="timeMonth" class=" mui-control-item tab " >
+						本月
+					</a>
+				</div>
+				<br />
+				<div id="segmentedControl1" class=" mui-segmented-control acontrol" style="border-bottom:1px solid #d0cca9; border-top: 1px solid #d0cca9;">
+
+					<a  id="goodComment"  class="mui-control-item mui-active tab"  style="color: black;border:1px solid white; " href="#item4">
+						<img id="goodImg" src="${Session.BASE_URL}/img/好评.png" style="width:20px; height:20px; vertical-align:middle;"> 
+						<span style="font-size: 12px; font-weight: bold; margin-top: 10%;">好评</span>
+					</a>
+
+					<a id="badComment"  class="mui-control-item mui-active tab" style="color: #b0b0b0;border:1px solid white ;border-left: 1px solid #d0cca9;" href="#item5">
+						<img id="badImg" src="${Session.BASE_URL}/img/排名-差评.png" style="width:20px; height:20px; vertical-align:middle;"> 
+						<span style="font-size: 12px; font-weight: bold; margin-top: 10%;">差评</span>
+					</a>
+
+				</div>
+
+				<div class="mui-content-padded">
+					
+					<div id="item4" class="mui-control-content mui-active">
+
+						<div id="mui-slider-group1">
+							<div id="mui-scroll1">
+
+								<div id="load4" class=" u1">
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div id="item5" class="mui-control-content">
+
+						<div id="mui-slider-group2">
+							<div id="mui-scroll2">
+
+								<div id="load5" class=" u1">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<br />
+			
+
+		</div>
+
+
+
+
+	</body>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/mui.js"></script>
+	<script src="${Session.BASE_URL}/js/mui.min.js"></script>
+	<script src="${Session.BASE_URL}/js/mui.pullToRefresh.js"></script>
+	<script src="${Session.BASE_URL}/js/mui.pullToRefresh.material.js"></script>
+	<script type="text/javascript" src="${Session.BASE_URL}/js/jquery-2.1.0.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+	
+		//本日 本周 本月
+		var dateStr = "本日";
+		//1好评 2差评 
+		var goodState = "1";
+		
+
+		function goodVisible(){
+			$("#goodImg").attr('src',"${Session.BASE_URL}/img/好评.png");
+			$("#goodComment").css("color","black");
+			
+			$("#badImg").attr('src',"${Session.BASE_URL}/img/排名-差评.png");
+			$("#badComment").css("color","#b0b0b0");
+		}
+		
+		function badVisible(){
+			$("#goodImg").attr('src',"${Session.BASE_URL}/img/点赞.png");
+			$("#goodComment").css("color","#b0b0b0");
+			
+			$("#badImg").attr('src',"${Session.BASE_URL}/img/差评.png");
+			$("#badComment").css("color","black");
+		}
+		
+		//好评
+		document.getElementById('goodComment').addEventListener('tap',function(){  
+			//1好评 2差评 
+			goodState = 1; 
+			
+			init()
+			
+			goodVisible();
+		});  
+		
+		//差评
+		document.getElementById('badComment').addEventListener('tap',function(){  
+			//1好评 2差评 
+			goodState = 2; 
+			 
+			init()
+			
+			badVisible();
+		});  
+		
+		
+		//本日 
+		document.getElementById('timeNow').addEventListener('tap',function(){  
+			//1好评 2差评 
+			goodState = 1; 
+			 
+			
+			//本日 本周 本月
+			dateStr = "本日";
+			
+			init();
+			
+			goodVisible();
+		});  
+		
+		//本周 
+		document.getElementById('timeWeek').addEventListener('tap',function(){  
+			//1好评 2差评 
+			goodState = 1;
+			 
+			
+			//本日 本周 本月
+			dateStr = "本周";
+			
+			init()
+			
+			goodVisible();
+		});  
+		
+		//本月
+		document.getElementById('timeMonth').addEventListener('tap',function(){  
+			//1好评 2差评 
+			goodState = 1;
+
+			
+			//本日 本周 本月
+			dateStr = "本月";
+			
+			init()
+			
+			goodVisible();
+		});  
+		
+		
+		function timestampToTime(time) {
+			var date = new Date(time); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+			Y = date.getFullYear() + '-';
+			M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+			D = date.getDate() + ' ';
+			h = date.getHours() + ':';
+			m = date.getMinutes() + ':';
+			s = date.getSeconds();
+			return Y + M + D;
+		}
+		var pageNo_1 = 1;
+		var pageNo_2 = 1;
+		var pageNo_3 = 1;
+		var pageNo_4 = 1;
+		var pageSize = 6;
+
+		
+		mui.init({
+
+			swipeBack: true
+			//右滑关闭功能queryDriversByIsfocus
+		});
+			
+
+		(function($) {
+			$('#mui-slider-group1').scroll({
+				indicators: true
+				//是否显示滚动条
+			});
+			
+			$('#mui-slider-group2').scroll({
+				indicators: true
+				//是否显示滚动条
+			});
+
+			$.ready(function() {
+			
+				$('#mui-slider-group1, #mui-slider-group2').scroll({
+					indicators: true
+					//是否显示滚动条
+				});
+				
+				$("#mui-scroll1").pullToRefresh({
+					up: {
+						auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+						show: true,
+						contentdown: '',
+						contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+						contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: function() {
+							var self = this;
+							var count = 0;
+	
+							setTimeout(function() {
+									load4(self);
+									pageNo_1 = pageNo_1 + 1;
+							}, 1000);
+						}
+					}
+				});
+				
+				$("#mui-scroll2").pullToRefresh({
+					up: {
+						auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+						show: true,
+						contentdown: '',
+						contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+						contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: function() {
+							var self = this;
+							var count = 0;
+	
+							setTimeout(function() {
+									load5(self);
+									pageNo_2 = pageNo_2 + 1;
+							}, 1000);
+						}
+					}
+				});
+				
+			});
+		})(mui);
+						
+
+		function init(){
+			
+			 pageNo_1 = 1;
+			 pageNo_2 = 1;
+			 
+			 document.getElementById("load4").innerHTML="";
+			 document.getElementById("load5").innerHTML="";
+			 
+			 
+			 (function($) {
+						$("#mui-scroll1").pullToRefresh().refresh(true);;
+						
+						$("#mui-scroll2").pullToRefresh().refresh(true);; 
+				})(mui);
+			 
+			
+			 (function($) {
+					$('#mui-slider-group1').scroll({
+						indicators: true
+						//是否显示滚动条
+					});
+					
+					$('#mui-slider-group2').scroll({
+						indicators: true
+						//是否显示滚动条
+					});
+
+					$.ready(function() {
+					
+						$('#mui-slider-group1, #mui-slider-group2').scroll({
+							indicators: true
+							//是否显示滚动条
+						});
+						
+						$("#mui-scroll1").pullToRefresh({
+							up: {
+								auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+								show: true,
+								contentdown: '',
+								contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+								contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+								callback: function() {
+									var self = this;
+									var count = 0;
+			
+									setTimeout(function() {
+											alert(1)
+											load4(self);
+											pageNo_1 = pageNo_1 + 1;
+									}, 1000);
+								}
+							}
+						});
+						
+						$("#mui-scroll2").pullToRefresh({
+							up: {
+								auto: true, //可选,默认false.首次加载自动上拉刷新一次 
+								show: true,
+								contentdown: '',
+								contentrefresh: '', //可选，正在加载状态时，上拉加载控件上显示的标题内容
+								contentnomore: '', //可选，请求完毕若没有更多数据时显示的提醒内容；
+								callback: function() {
+									var self = this;
+									var count = 0;
+			
+									setTimeout(function() {
+											load5(self);
+											pageNo_2 = pageNo_2 + 1;
+									}, 1000);
+								}
+							}
+						}); 
+						
+					});
+				})(mui);
+		}
+		
+		//加载工作日就餐
+		function load4(self) {
+			$.ajax({
+				url: '${Session.BASE_URL}/rank/queryMenuRank',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {
+					pageNumber: pageNo_1,
+					pageSize: pageSize,
+					dateStr: dateStr,
+					goodState: 1
+				},
+				success: function(result) {
+					console.log(result);
+					if (result.code = "200") {
+						console.log(result.list);
+						var ul = document.getElementById("load4");
+						createFragment4(ul, result.data);
+
+						if (result.data.length > 0) {
+							self.endPullUpToRefresh(false);
+						} else {
+							self.endPullUpToRefresh(true);
+						}
+					} else {
+
+					}
+				}
+			});
+		}
+
+
+
+		//加载工作日就餐
+		function createFragment4(ul, response) {
+			for (var i = 0; i < response.length; i++) {
+
+				var rank1 = response[i].rank;
+				var menuName1 = response[i].menuName;
+				var rankLog = '<img src="${Session.BASE_URL}/img/冠军.png" style="width:11%;">';
+				var goodLog = '<img src="${Session.BASE_URL}/img/点赞.png" style="width:15%;"/>';
+				var count1 = response[i].count;
+				
+				//排名log
+				var myNum = rank1.substring(3,rank1.length);
+				if(myNum == 1){
+					rankLog = '<img src="${Session.BASE_URL}/img/冠军.png" style="width:11%;">';
+				}else if(myNum == 2){
+					rankLog = '<img src="${Session.BASE_URL}/img/亚军.png" style="width:11%;">';
+				}else if(myNum == 3){
+					rankLog = '<img src="${Session.BASE_URL}/img/季军.png" style="width:11%;">';
+				}else{
+					rankLog = '';
+				}	
+				
+				var goodState1 =  response[i].goodState;
+				if(goodState1 != 1){
+					rankLog = '';
+					goodLog = '<img src="${Session.BASE_URL}/img/排名-差评.png" style="width:15%;"/>'
+				}
+				
+				
+				
+				
+				var lii  ='<li class="mui-table-view-cell" style="padding-right:5px;box-shadow:0 5px 5px gray;list-style: none; ">'+
+				'<div style="width:100%;height:100%;display:flex;flex-derection:row;line-height:40px;display:flex;justify-content:center;align-items:center">'
+				+'<div style="width:20%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ rank1 +'</div>'
+				+'<div style="width:50%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ menuName1 +'<span style="visibility:hidden;">'+'张三'+'</span>'+ rankLog +'</div>'
+				+'<div style="width:30%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ goodLog +'<span style="visibility:hidden;">'+'&nbsp;'+'</span>'+ count1 +'</div>'
+				+'</div>'+'</li>'
+										
+				ul.innerHTML += lii;
+			}
+		}
+
+
+		//加载工作日就餐
+		function load5(self) {
+			$.ajax({
+				url: '${Session.BASE_URL}/rank/queryMenuRank',
+				type: 'POST',
+				dataType: 'JSON',
+				data: {
+					pageNumber: pageNo_2,
+					pageSize: pageSize,
+					dateStr: dateStr,
+					goodState: goodState
+				},
+				success: function(result) {
+					console.log(result);
+					if (result.code = "200") {
+						var ul = document.getElementById("load5");
+						createFragment5(ul, result.data);
+
+						if (result.data.length > 0) {
+							self.endPullUpToRefresh(false);
+						} else {
+							self.endPullUpToRefresh(true);
+						}
+					} else {
+
+					}
+				}
+			});
+		}
+
+		//加载 
+		function createFragment5(ul, response) {
+			for (var i = 0; i < response.length; i++) {
+
+				var rank1 = response[i].rank;
+				var menuName1 = response[i].menuName;
+				var rankLog = '<img src="${Session.BASE_URL}/img/冠军.png" style="width:11%;">';
+				var goodLog = '<img src="${Session.BASE_URL}/img/点赞.png" style="width:15%;"/>';
+				var count1 = response[i].count;
+				
+				//排名log
+				var myNum = rank1.substring(3,rank1.length);
+				if(myNum == 1){
+					rankLog = '<img src="${Session.BASE_URL}/img/冠军.png" style="width:11%;">';
+				}else if(myNum == 2){
+					rankLog = '<img src="${Session.BASE_URL}/img/亚军.png" style="width:11%;">';
+				}else if(myNum == 3){
+					rankLog = '<img src="${Session.BASE_URL}/img/季军.png" style="width:11%;">';
+				}else{
+					rankLog = '';
+				}	
+				
+				var goodState1 =  response[i].goodState;
+				if(goodState1 != 1){
+					rankLog = '';
+					goodLog = '<img src="${Session.BASE_URL}/img/排名-差评.png" style="width:15%;"/>'
+				}
+				
+				
+				
+				
+				var lii  ='<li class="mui-table-view-cell" style="padding-right:5px;box-shadow:0 5px 5px gray;list-style: none; ">'+
+				'<div style="width:100%;height:100%;display:flex;flex-derection:row;line-height:40px;display:flex;justify-content:center;align-items:center">'
+				+'<div style="width:20%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ rank1 +'</div>'
+				+'<div style="width:50%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ menuName1 +'<span style="visibility:hidden;">'+'张三'+'</span>'+ rankLog +'</div>'
+				+'<div style="width:30%;height:100%;display:flex;justify-content:center;align-items:center;font-size:0.95rem">'+ goodLog +'<span style="visibility:hidden;">'+'&nbsp;'+'</span>'+ count1 +'</div>'
+				+'</div>'+'</li>'
+										
+				ul.innerHTML += lii;
+			}
+		}
+
+		
+	</script>
+
+</html>

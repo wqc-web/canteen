@@ -1,0 +1,64 @@
+body {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+ul,li,dl,dd {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a{
+	 text-decoration:none;
+	 color: #000000;
+	 margin-top: 20px;
+}
+.tit {
+	text-align: left;
+	margin-top: 20px;
+}
+ .top a,.center a {
+	background: #fff none repeat scroll 0 0;
+	border: 1px solid #fff;
+	/*float: left;*/
+	height: 100%;
+	width: 100%;
+	line-height: 30px;
+	margin-left: -1px;
+	text-align: center;
+	margin-left: 8%;
+	font-size: 20px;
+}
+
+.top{	
+	height: 35px;
+	border:1px solid #ffb532;
+	border-right: 0px ;
+	margin-left: 1px;
+	box-shadow: darkgrey 5px 5px 15px 2.5px ;//边框阴影
+}
+.center{
+	
+}
+.left_top , .left_center , .left_button{
+	box-shadow: darkgrey 0px 0px 15px 0px ;//边框阴影
+	
+}
+
+
+.button_left{
+	float: left;
+	padding-left: 30px;
+	padding-top: 35px;
+	width: 10%;
+	
+}
+.button_right{
+	padding-left: 30px;
+	padding-top: 35px;
+	width: 80%;
+	float: left;
+}
+.first{
+	widows: 30%;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.MenuTypeDao">
+  
+	<select id="querySlotId"  resultType="com.zhongzhou.dto.MenuTypeDto">
+		select 
+		tm.id timeSlotMenuTypeId, tm.menu_type_id menuTypeId , tm.time_slot_id timeSlotId,  mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate 
+		from time_slot_as_menu_type tm 
+		LEFT JOIN menu_type mt 
+		on tm.menu_type_id = mt.id
+		LEFT JOIN time_slot t
+		on tm.time_slot_id = t.id
+		 where tm.time_slot_id = #{timeSlotId}
+	</select>
+  
+	 <select id="queryList"  resultType="com.zhongzhou.entity.canteen.MenuType">
+	 	select * from menu_type 
+	</select>
+  
+</mapper>

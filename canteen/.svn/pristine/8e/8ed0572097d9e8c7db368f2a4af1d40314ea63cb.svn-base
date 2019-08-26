@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.MenuListDao">
+  
+	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.MenuList" useGeneratedKeys="true" keyProperty="id">
+	    insert into menu_list
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="timeSlotId != null">
+	        time_slot_id,
+	      </if>
+	      <if test="menuTypeId != null">
+	        menu_type_id,
+	      </if>
+	      <if test="menuId != null">
+	        menu_id,
+	      </if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="timeSlotId != null">
+	        #{timeSlotId},
+	      </if>
+	      <if test="menuTypeId != null">
+	        #{menuTypeId},
+	      </if>
+	      <if test="menuId != null">
+	        #{menuId},
+	      </if>
+	    </trim>
+	</insert>
+	
+	<delete id="deleteId">
+	  delete from menu_list
+	  where id = #{id}
+	</delete>
+  
+  
+  	<delete id="deleteObj">
+	  	delete from menu_list
+	  	
+		<where>
+			<trim prefix="" suffix="" suffixOverrides="and">
+			     <if test="id != null">
+			       id = #{id}  and  
+			     </if>
+			     <if test="timeSlotId != null">
+			       time_slot_id = #{timeSlotId}  and  
+			     </if>
+			     <if test="menuTypeId != null">
+			       menu_type_id = #{menuTypeId}  and  
+			     </if>
+			     <if test="menuId != null">
+			       menu_id = #{menuId}  and  
+			     </if>
+			</trim>
+		</where>
+		
+	</delete>
+  
+  
+	 <select id="queryMenuId"  resultType="com.zhongzhou.entity.canteen.MenuList">
+		select id , time_slot_id timeSlotId , menu_type_id menuTypeId , menu_id menuId  from menu_list
+		where menu_id = #{menuId}
+		
+		LIMIT 0 ,1 
+	</select>
+  
+</mapper>

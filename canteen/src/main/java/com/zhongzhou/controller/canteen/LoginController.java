@@ -1,0 +1,251 @@
+package com.zhongzhou.controller.canteen;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhongzhou.controller.base.BaseController;
+import com.zhongzhou.entity.canteen.Corporate;
+import com.zhongzhou.entity.canteen.User;
+import com.zhongzhou.log.annotation.LogInfer;
+import com.zhongzhou.service.canteen.UserService;
+import com.zhongzhou.utils.AccessToken;
+import com.zhongzhou.utils.Consts;
+import com.zhongzhou.utils.HttpResult;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import springfox.documentation.annotations.ApiIgnore;
+
+
+@Api(tags={"登录模块"})
+@Controller
+public class LoginController extends BaseController {
+	
+	
+	private static ObjectMapper jsonMapper=new ObjectMapper();
+
+    @Autowired
+    private UserService service;
+
+    //登录
+    @ApiIgnore
+    @RequestMapping(value="/login",method = RequestMethod.GET)
+    public String login(ModelMap mm,HttpSession session,HttpServletRequest request){
+        session.setAttribute("user", null);
+        String path = request.getContextPath();
+        String BASE_URL = path+"/";
+        session.setAttribute("BASE_URL",BASE_URL);
+        System.out.println(BASE_URL);
+        return "view/login";
+    }
+    @ApiOperation("用户登录")
+    @LogInfer(logModel = "登录", logType = "登录",remake = "用户登录",ID = "account")
+    @RequestMapping(value="/ajaxLogin",method = RequestMethod.POST)
+    @ResponseBody
+    public HttpResult ajaxLogin(@ApiParam(required=true,value="一个用户对象,account与password不能为空")User user, HttpSession session, HttpServletRequest request){
+        HttpResult result = new HttpResult();
+        try {
+            
+        	user = service.queryUser(user);
+            if(user==null){
+                throw new Exception("用户名或者密码错误!");
+            }
+            //user塞入session中
+            session.setAttribute("user", user);
+            //BASE_URL塞入session中,页面所有连接前加上BASE_URL 解决页面路径多层问题
+            session.setAttribute("BASE_URL",request.getContextPath());
+            System.out.println( request.getContextPath() );
+
+            result.setCode(Consts.SUCCESS);
+            result.setMsg("登录成功!");
+            result.setData(user);
+        }catch (Exception e){
+            result.setCode(Consts.ERROR);
+            result.setMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
+    @RequestMapping(value="/errorTest")
+   	public String errorTest(ModelMap mm,HttpServletRequest request,HttpSession session){
+    	 return "error";
+    }
+
+    @RequestMapping(value="/toWeixinIndex")
+	public String toWeixinIndex(ModelMap mm,HttpServletRequest request,HttpSession session){
+		User u=(User)session.getAttribute("user");
+		if(u==null){
+			String code=request.getParameter("code");
+			if(code==null ||"".equals(code)){
+				//没有权限
+				return "error";
+			}
+			String token=getAccess_token();
+			System.out.println("token=="+token);
+			String url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token="+token+"&code="+code;  
+			String json = loadJson(url);
+			try {
+				JsonNode node=jsonMapper.readTree(json);
+				String weixinid=node.get("UserId").asText();
+				User user=service.queryUserByWeixinid(weixinid);
+				if(user==null){
+					//新增人员
+					String imgUrl = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token="+token+"&userid="+weixinid;
+					String info = loadJson(imgUrl);
+					JsonNode node2=jsonMapper.readTree(info);
+					System.err.println("获取到的imgUrl===="+imgUrl);
+					//姓名
+					String name=node2.get("name").asText();
+					//头像信息
+					String avatar=node2.get("avatar").asText();
+					//性别
+					String gender=node2.get("gender").asText();
+					//
+					String mobile=node2.get("mobile").asText();
+					
+					User uu=new User();
+					uu.setAvatar(avatar);
+					uu.setManager(2);
+					uu.setName(name);
+					uu.setWxid(weixinid);
+					uu.setGender(Integer.parseInt(gender));
+					uu.setMobile(mobile); 
+					service.insert(uu);    //新增人员
+					session.setAttribute("user", uu);
+				}else{
+					//登录成功
+					session.setAttribute("user", user);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+				session.setAttribute("msg", "授权异常");
+				return "error";
+			}
+		}
+		
+		String path = request.getContextPath();
+        String BASE_URL = path+"/";
+       
+        request.getSession().setAttribute("BASE_URL",BASE_URL);
+        
+		return "app/appindex";
+	}
+    
+    
+    
+    //获取access_token
+    private String getAccess_token(){
+    	Corporate corporate=service.queryCorporateInfo();
+    	
+    	
+    	
+    	
+    	String token=AccessToken.getAccessToken(corporate.getCorporateid(),corporate.getSecret());
+    	return token;
+    }
+    
+    
+    private Corporate getCorporateInfo(){
+    	return service.queryCorporateInfo();
+    }
+    
+    
+    private static String loadJson (String url) {  
+        StringBuilder json = new StringBuilder();  
+        try {  
+            URL urlObject = new URL(url);  
+            URLConnection uc = urlObject.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream(),"UTF-8"));  
+            String inputLine = null;  
+            while ( (inputLine = in.readLine()) != null) {  
+                json.append(inputLine);  
+            }  
+            in.close();  
+        } catch (MalformedURLException e) {  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        return json.toString(); 
+        
+    } 
+    
+    
+    @RequestMapping(value="/test2")
+    public String test(){
+    	return "error";
+    }
+    
+    
+    
+    
+    @RequestMapping(value="/testLogin")
+	public @ResponseBody HttpResult testLogin(String weixinid){
+    	HttpResult hr=new HttpResult();
+		User user=service.queryUserByWeixinid(weixinid);
+		if(user==null){
+			String name="小红";
+			String avatar="头像";
+			String gender="1";
+			String mobile="电话";
+			User uu=new User();
+			uu.setAvatar(avatar);
+			uu.setManager(2);
+			uu.setName(name);
+			uu.setWxid(weixinid);
+			uu.setGender(Integer.parseInt(gender));
+			uu.setMobile(mobile); 
+			service.insert(uu);    //新增人员
+			hr.setMsg("uu新增");
+			hr.setData(uu);
+			//新增人员
+		}else{
+			//登录成功
+			hr.setMsg("user");
+			hr.setData(user);
+		}
+		return hr;
+	}
+    
+    
+    @RequestMapping(value="/testgettoken")
+    public @ResponseBody HttpResult getAccess_tokenTest(){
+    	HttpResult hr=new HttpResult();
+    	Corporate corporate=service.queryCorporateInfo();
+    	String token=AccessToken.getAccessToken(corporate.getCorporateid(),corporate.getSecret());
+    	hr.setMsg(token);
+    	return hr;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}

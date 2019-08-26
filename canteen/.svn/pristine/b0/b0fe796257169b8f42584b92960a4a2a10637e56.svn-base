@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.MenuFeedbackDao">
+  
+	<delete id="deleteObj">
+	  	delete from menu_feedback
+	  
+		<where>
+			<trim prefix="" suffix="" suffixOverrides="and">
+			     <if test="id != null">
+			       id = #{id}  and  
+			     </if>
+			     <if test="goodState != null">
+			      	good_state = #{goodState}  and  
+			     </if>
+			     <if test="goodTime != null">
+			      	DATE_FORMAT(good_time,'%Y-%m-%d') = #{goodTime}  and  
+			     </if>
+			     <if test="menuId != null">
+			       	menu_id = #{menuId}  and  
+			     </if>
+			     <if test="wxid != null">
+			       	wxid = #{wxid}  and  
+			     </if>
+			</trim>
+		</where>
+	  
+	</delete>  
+  
+  
+	 <select id="queryMenuRank"  resultType="com.zhongzhou.dto.MenuRankDto">
+			select  my.* from (
+				select count(menu_id) count, m.name menuName, mf.good_state goodState, mf.menu_id menuId  from menu_feedback mf 
+				LEFT JOIN menu m 
+				on mf.menu_id = m.id
+				where mf.good_state = #{goodState}
+				and mf.good_time between  #{startTime}  and  #{endTime}
+				GROUP BY menu_id 
+			)  my  
+			order by my.count desc
+			
+			limit #{startPage} , #{endPage}
+					
+	</select>
+	
+	<select id="queryMenuRankCount"  resultType="java.lang.Long">
+	
+		select count(*) from (
+	
+			select  my.* from (
+				select count(menu_id) count, m.name menuName, mf.good_state goodState, mf.menu_id menuId  from menu_feedback mf 
+				LEFT JOIN menu m 
+				on mf.menu_id = m.id
+				where mf.good_state = #{goodState}
+				and mf.good_time between  #{startTime}  and  #{endTime}
+				GROUP BY menu_id 
+			)  my  
+			
+		) self
+					
+	</select>
+	
+	<select id="queryMenuFeedbackIsExist"  resultType="java.lang.Long">
+			select 
+				count(*)
+			from menu_feedback mf
+			where DATE_FORMAT(mf.good_time,'%Y-%m-%d') = #{goodTime}
+			and mf.menu_id = #{menuId}
+			and mf.wxid = #{wxid}
+	</select>
+  
+  
+  	<select id="queryMenuFeedbackObj"  resultType="com.zhongzhou.entity.canteen.MenuFeedback">
+			select 
+				mf.id id , mf.good_state goodState , mf.good_time goodTime , mf.menu_id menuId , mf.wxid wxid
+			from menu_feedback mf
+			
+			<where>
+				<trim prefix="" suffix="" suffixOverrides="and">
+				     <if test="id != null">
+				       id = #{id}  and  
+				     </if>
+				     <if test="goodState != null">
+				      	good_state = #{goodState}  and  
+				     </if>
+				     <if test="goodTime != null">
+				      	DATE_FORMAT(good_time,'%Y-%m-%d') = #{goodTime}  and  
+				     </if>
+				     <if test="menuId != null">
+				       	menu_id = #{menuId}  and  
+				     </if>
+				     <if test="wxid != null">
+				       	wxid = #{wxid}  and  
+				     </if>
+				</trim>
+			</where>
+			
+	</select>
+  
+  
+  
+	 <update id="update" parameterType="com.zhongzhou.entity.canteen.MenuFeedback">
+	       update menu_feedback
+	       <set>
+	       	<trim prefix="" suffix="" suffixOverrides=",">
+				 <if test="goodState != null">
+				    good_state = #{goodState}  ,  
+			     </if>
+			     <if test="goodTime != null">
+			      	good_time = #{goodTime}  ,  
+			     </if>
+			     <if test="menuId != null">
+			       	menu_id = #{menuId}  , 
+			     </if>
+			     <if test="wxid != null">
+			       	wxid = #{wxid}  , 
+			     </if>
+			</trim>
+	       </set>
+	       where id = #{id}
+	</update>
+	
+	
+	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.MenuFeedback" useGeneratedKeys="true" keyProperty="id">
+	    insert into menu_feedback
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="goodState != null">
+				good_state   ,  
+			</if>
+			<if test="goodTime != null">
+			 	good_time   ,  
+			</if>
+			<if test="menuId != null">
+			  	menu_id  , 
+			</if>
+			<if test="wxid != null">
+			  	wxid  , 
+			</if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	     	<if test="goodState != null">
+				#{goodState}  ,  
+			</if>
+			<if test="goodTime != null">
+			 	#{goodTime}  ,  
+			</if>
+			<if test="menuId != null">
+			  	#{menuId}  , 
+			</if>
+			<if test="wxid != null">
+			  	#{wxid}  , 
+			</if>
+	    </trim>
+	</insert>
+  
+</mapper>

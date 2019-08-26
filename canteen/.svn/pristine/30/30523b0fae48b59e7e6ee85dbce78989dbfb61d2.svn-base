@@ -1,0 +1,20 @@
+package com.zhongzhou.service.canteen;
+
+import java.util.List;
+
+import com.zhongzhou.dto.MenuTypeDto;
+
+/**
+ * 	菜单类型 Service
+ */
+public interface MenuTypeService {
+
+	/**
+	 * 
+	 * 查询 时间段id 
+	 * @param timeSlotId
+	 * @return
+	 */
+	List<MenuTypeDto> querySlotId(Integer timeSlotId);
+	
+}

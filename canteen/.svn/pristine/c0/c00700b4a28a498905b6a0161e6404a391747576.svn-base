@@ -1,0 +1,291 @@
+package com.zhongzhou.service.canteen.impl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.zhongzhou.dao.canteen.MenuDao;
+import com.zhongzhou.dao.canteen.MenuListDao;
+import com.zhongzhou.dao.canteen.MenuTypeDao;
+import com.zhongzhou.dao.canteen.WeeklyDao;
+import com.zhongzhou.dao.canteen.WeeklyMenuListDao;
+import com.zhongzhou.dto.MenuDto;
+import com.zhongzhou.dto.MenuTypeDto;
+import com.zhongzhou.dto.WeeklyMenuDto;
+import com.zhongzhou.entity.canteen.Menu;
+import com.zhongzhou.entity.canteen.MenuFeedback;
+import com.zhongzhou.entity.canteen.MenuList;
+import com.zhongzhou.entity.canteen.Weekly;
+import com.zhongzhou.entity.canteen.WeeklyMenuList;
+import com.zhongzhou.service.canteen.MenuService;
+import com.zhongzhou.dao.canteen.MenuFeedbackDao;
+
+/**
+ *	菜单 service impl
+ */
+@Service
+public class MenuServiceImpl implements MenuService{
+	
+	public MenuServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 *  注入 dao对象
+	 */
+	@Autowired
+	MenuDao menuDao;
+	
+	@Autowired
+	WeeklyMenuListDao weeklyMenuListDao;
+	
+	@Autowired
+	MenuTypeDao menuTypeDao;
+	
+	@Autowired
+	WeeklyDao weeklyDao;
+	
+	@Autowired
+	MenuListDao menuListDao;
+	
+	@Autowired
+	MenuFeedbackDao menuFeedbackDao;
+	
+	
+	/**
+	 *	查询菜单Dto 
+	 *	参数 : timeSlotId 和 menuTypeId
+	 *	返回 : List<MenuDto>
+	 */
+	public List<MenuDto> queryMenuTypeIsMenu(Integer timeSlotId, Integer menuTypeId){
+		return menuDao.queryMenuTypeIsMenu(timeSlotId, menuTypeId);
+	}
+	
+	
+	/**
+	 *	查询菜单Dto Page 
+	 *	参数 : timeSlotId 和 menuTypeId
+	 *	返回 : List<MenuDto>
+	 */
+	@Override
+	public List<MenuDto> queryMenuTypeIsMenuPage(Integer timeSlotId, Integer menuTypeId, Integer pageStart,
+			Integer pageSize, String menuName) {
+		return menuDao.queryMenuTypeIsMenuPage(timeSlotId, menuTypeId, pageStart, pageSize ,  menuName);
+	}
+
+	
+	/**
+	 *	查询菜单Dto count
+	 *	参数 : timeSlotId 和 menuTypeId
+	 *	返回 : List<MenuDto>
+	 */
+	@Override
+	public Integer queryMenuTypeIsMenuCount(Integer timeSlotId, Integer menuTypeId ,String menuName) {
+		return menuDao.queryMenuTypeIsMenuCount(timeSlotId, menuTypeId , menuName);
+	}
+	
+	/**
+	 * 	查询指定星期 时间段  菜单类型
+	 * 	参数 : timeSlotId 和 menuTypeId 和 weeklyId
+	 *	返回 : List<MenuDto>
+	 */
+	@Override
+	public List<MenuDto> queryWeeklyMenuList(Integer timeSlotId, Integer menuTypeId, Integer weeklyId) {
+		return menuDao.queryWeeklyMenuList(timeSlotId, menuTypeId, weeklyId);
+	}
+
+
+	/**
+	 *	添加周几菜单列表数据
+	 */
+	@Override
+	public Long addWeeklyMenuListObj(WeeklyMenuList weeklyMenuList) {
+		return weeklyMenuListDao.insert(weeklyMenuList);
+	}
+
+
+	/**
+	 *	删除周几菜单列表 id
+	 */
+	@Override
+	public Long deleteWeeklyMenuListId(Integer id) {
+		return weeklyMenuListDao.deleteId(id);
+	}
+
+	/**
+	 * 	查询指定星期 时间段  菜单名称
+	 * 	参数 : timeSlotId 和  weeklyId 和 menuName
+	 *	返回 : List<MenuDto>
+	 */
+	@Override
+	public List<MenuDto> queryWeeklyMenuName(Integer timeSlotId, Integer weeklyId, String menuName) {
+		return menuDao.queryWeeklyMenuName(timeSlotId, weeklyId, menuName);
+	}
+
+
+	/**
+	 *	每周菜谱页面 数据
+	 * @param timeSlotId
+	 * @return
+	 */
+	@Override
+	public List<WeeklyMenuDto> weeklyMenuPageList(Integer timeSlotId) {
+		
+		//菜单类型list
+		List<MenuTypeDto> menuTypeDtoList = menuTypeDao.querySlotId(timeSlotId);
+		
+		//所有星期
+		List<Weekly> weeklyList =  weeklyDao.queryIdAsc();
+		
+		
+		//返回的页面数据
+		List<WeeklyMenuDto> weeklyMenuDtoList = new ArrayList<WeeklyMenuDto>();
+		
+		
+		//星期 
+		for (int i = 0; i < weeklyList.size(); i++) {
+			
+			//周几对象
+			Weekly weekly = weeklyList.get(i);
+			
+			Integer weeklyId =  weekly.getId();
+			
+			//创建返回的对象
+			WeeklyMenuDto weeklyMenuDto = new WeeklyMenuDto();
+			
+			//赋值 周几
+			weeklyMenuDto.setWeekly(weekly);
+			
+			//菜单类型  下的  菜单集合
+			Map map = new HashMap();
+			
+			//菜单类型
+			for (int j = 0; j < menuTypeDtoList.size(); j++) {
+				
+				MenuTypeDto menuTypeDto = menuTypeDtoList.get(j);
+				Integer menuTypeId = menuTypeDto.getMenuTypeId();
+				String menuTypeName = menuTypeDto.getMenuTypeName();
+				
+				List<MenuDto> menuDtoList =  menuDao.queryWeeklyMenuList(timeSlotId, menuTypeId, weeklyId);
+				
+				String menuNameArr = "";
+				
+				for (int k = 0; k < menuDtoList.size(); k++) {
+					menuNameArr += menuDtoList.get(k).getMenuName();
+					
+					if(k < menuDtoList.size()-1) {
+						menuNameArr += "、";
+					}
+				}
+				
+				map.put(menuTypeName, menuNameArr);
+			}
+			
+			weeklyMenuDto.setMap(map);
+			
+			//添加
+			weeklyMenuDtoList.add(weeklyMenuDto);
+		}
+		
+		
+		return weeklyMenuDtoList;
+	}
+
+
+	/**
+	 * 	查询指定星期 时间段 
+	 * 	参数 : timeSlotId  和 weeklyId
+	 *	返回 : List<MenuDto>
+	 */
+	@Override
+	public List<MenuDto> queryWeeklySlotMenuList(Integer timeSlotId, Integer weeklyId) {
+		return menuDao.queryWeeklySlotMenuList(timeSlotId, weeklyId);
+	}
+
+
+	/**
+	 *	删除周几菜单列表 Obj
+	 */
+	@Override
+	public Long deleteWeeklyMenuListObj(WeeklyMenuList weeklyMenuList) {
+		return weeklyMenuListDao.deleteObj(weeklyMenuList);
+	}
+
+
+	/**
+	 *	添加菜单
+	 */
+	@Override
+	public MenuDto addMenu(String menuName, String menuPicUrl, BigDecimal menuPrice, Integer menuTypeId, Integer timeSlotId) {
+		
+		Menu menu = new Menu( menuName,  menuPicUrl,  menuPrice);
+		Long menuCount = menuDao.insert(menu);
+		
+		Integer menuId = menu.getId();
+		
+		MenuList menuList = new MenuList( timeSlotId,  menuTypeId,  menuId);
+		Long menuListCount = menuListDao.insert(menuList);
+		
+		Integer menuListId =  menuList.getId();
+		
+		
+		//创建返回对象
+		MenuDto dto = new MenuDto();
+		dto.setMenuName(menuName);
+		dto.setMenuPicUrl(menuPicUrl);
+		dto.setMenuPrice(menuPrice);
+		dto.setMenuTypeId(menuTypeId);
+		dto.setTimeSlotId(timeSlotId);
+		dto.setMenuId(menuId);
+		dto.setMenuListId(menuListId);
+		
+		return dto;
+	}
+
+
+	/**
+	 * 	删除 菜单 
+	 *	删除 :  menu,  menu_list , weekly_menu_list , menu_feedback
+	 */
+	@Override
+	public String deleteMenuId(Integer menuId) {
+		
+		//menu_list
+		MenuList menuList = new MenuList();
+		menuList.setMenuId(menuId);
+		menuListDao.deleteObj(menuList);
+		
+		//weekly_menu_list
+		WeeklyMenuList weeklyMenuList = new WeeklyMenuList();
+		weeklyMenuList.setMenuId(menuId);
+		weeklyMenuListDao.deleteObj(weeklyMenuList);
+		
+		//menu_feedback
+		MenuFeedback menuFeedback  = new MenuFeedback();
+		menuFeedback.setMenuId(menuId);
+		menuFeedbackDao.deleteObj(menuFeedback);
+		
+		//menu
+		menuDao.deleteId(menuId);
+		
+		return "success";
+	}
+
+
+	/**
+	 *	根据id查询对象 修改
+	 */
+	@Override
+	public Long updateMenu(Menu record) {
+		return menuDao.update(record);
+	}
+
+	
+
+	
+}

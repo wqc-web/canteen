@@ -1,0 +1,77 @@
+package com.zhongzhou.entity.canteen;
+
+import java.util.Date;
+
+/**
+ *	时间段 (早中晚)
+ */
+public class TimeSlot {
+
+	/**
+	 * 
+	 */
+	public TimeSlot() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * 
+	 */
+	private Integer id;
+	
+	/**
+	 *  名称
+	 */
+	private String name;
+	
+	/**
+	 *  开始时间
+	 */
+	private Date start_date;
+	
+	/**
+	 * 	结束时间
+	 */
+	private Date end_date;
+
+	
+	
+	
+	
+	/**
+	 * @return
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+
+	public Date getEnd_date() {
+		return end_date;
+	}
+
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
+	
+}

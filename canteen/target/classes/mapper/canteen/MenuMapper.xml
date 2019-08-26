@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.MenuDao">
+  
+	<select id="queryMenuTypeIsMenu"  resultType="com.zhongzhou.dto.MenuDto">
+		select 
+			ml.menu_id menuId, ml.menu_type_id menuTypeId , 
+			mt.name menuTypeName, 
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from menu_list ml 
+		LEFT JOIN menu_type mt 
+		on ml.menu_type_id = mt.id
+		LEFT JOIN menu m 
+		on ml.menu_id = m.id
+		
+		where 
+		 ml.menu_type_id = #{menuTypeId}
+
+	</select>
+	
+	<select id="queryMenuTypeIsMenuPage"  resultType="com.zhongzhou.dto.MenuDto">
+		
+		<bind name="menuNameValue" value="'%' + menuName + '%'" />
+	
+		select 
+			ml.menu_id menuId, ml.menu_type_id menuTypeId , 
+			mt.name menuTypeName, 
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from menu_list ml 
+		LEFT JOIN menu_type mt 
+		on ml.menu_type_id = mt.id
+		LEFT JOIN menu m 
+		on ml.menu_id = m.id
+		
+		where 
+		 ml.menu_type_id = #{menuTypeId}
+		and m.name  like  #{menuNameValue}
+
+		limit  #{pageStart} , #{pageSize}
+	</select>
+  
+	 <select id="queryMenuTypeIsMenuCount"  resultType="java.lang.Integer">
+	 	
+	 	<bind name="menuNameValue" value="'%' + menuName + '%'" />
+	 
+		select 
+			count(*)
+		from menu_list ml 
+		LEFT JOIN menu_type mt 
+		on ml.menu_type_id = mt.id
+		LEFT JOIN menu m 
+		on ml.menu_id = m.id
+		
+		where 
+		 ml.menu_type_id = #{menuTypeId}
+		and m.name  like  #{menuNameValue}
+		 
+	</select>
+  
+	<select id="queryWeeklyMenuList"  resultType="com.zhongzhou.dto.MenuDto">
+		select 
+			wml.menu_id menuId, wml.menu_type_id menuTypeId , wml.time_slot_id timeSlotId,   wml.weekly_id weeklyId, wml.id weeklyMenuListId,
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from weekly_menu_list wml 
+		LEFT JOIN time_slot t 
+		on wml.time_slot_id = t.id 
+		LEFT JOIN menu_type mt 
+		on wml.menu_type_id = mt.id
+		LEFT JOIN weekly w 
+		on wml.weekly_id = w.id
+		LEFT JOIN menu m 
+		on wml.menu_id = m.id
+		
+		where wml.weekly_id = #{weeklyId} 
+		and wml.menu_type_id = #{menuTypeId} 
+		and wml.time_slot_id = #{timeSlotId}
+				
+	</select>
+	
+	<select id="queryMenuAllMenuTypeId"  resultType="com.zhongzhou.dto.MenuDto">
+		select 
+		ml.menu_id menuId,ml.id menuListId,
+		m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from menu_list ml 
+		LEFT JOIN menu m 
+		on ml.menu_id = m.id
+		where ml.menu_type_id = #{menuTypeId} 
+	</select>
+	
+	<select id="queryWeeklyMenuListPage"  resultType="com.zhongzhou.dto.MenuDto">
+		select 
+			wml.menu_id menuId, wml.menu_type_id menuTypeId , wml.time_slot_id timeSlotId,   wml.weekly_id weeklyId, wml.id weeklyMenuListId,
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from weekly_menu_list wml 
+		LEFT JOIN time_slot t 
+		on wml.time_slot_id = t.id 
+		LEFT JOIN menu_type mt 
+		on wml.menu_type_id = mt.id
+		LEFT JOIN weekly w 
+		on wml.weekly_id = w.id
+		LEFT JOIN menu m 
+		on wml.menu_id = m.id
+		
+		where wml.weekly_id = #{weeklyId} 
+		and wml.menu_type_id = #{menuTypeId} 
+		and wml.time_slot_id = #{timeSlotId}
+		
+		limit  #{startPage} , #{endPage}
+				
+	</select>
+	
+	
+	<select id="appQueryWeeklyMenuListPage"  resultType="com.zhongzhou.dto.MenuFeedbackDto">
+		select 
+			wml.menu_id menuId, wml.menu_type_id menuTypeId , wml.time_slot_id timeSlotId,   wml.weekly_id weeklyId, wml.id weeklyMenuListId, mf.id menuFeedbackId,
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice ,
+			mf.good_state goodState, mf.good_time goodTime, mf.wxid
+		from weekly_menu_list wml 
+		LEFT JOIN time_slot t 
+		on wml.time_slot_id = t.id 
+		LEFT JOIN menu_type mt 
+		on wml.menu_type_id = mt.id
+		LEFT JOIN weekly w 
+		on wml.weekly_id = w.id
+		LEFT JOIN menu m 
+		on wml.menu_id = m.id
+		
+		LEFT JOIN  (select * from menu_feedback 
+		where  wxid = #{wxid}
+		and DATE_FORMAT(good_time,'%Y-%m-%d') = #{goodTime})
+			mf
+		
+		on wml.menu_id = mf.menu_id
+		
+		where wml.weekly_id = #{weeklyId} 
+		and wml.menu_type_id = #{menuTypeId} 
+		and wml.time_slot_id = #{timeSlotId}
+				
+		limit  #{startPage} , #{endPage}
+				
+	</select>
+	
+	<select id="appQueryWeeklyMenuList"  resultType="com.zhongzhou.dto.MenuFeedbackDto">
+		select 
+			wml.menu_id menuId, wml.menu_type_id menuTypeId , wml.time_slot_id timeSlotId,   wml.weekly_id weeklyId, wml.id weeklyMenuListId, mf.id menuFeedbackId,
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice ,
+			mf.good_state goodState, mf.good_time goodTime, mf.wxid
+		from weekly_menu_list wml 
+		LEFT JOIN time_slot t 
+		on wml.time_slot_id = t.id 
+		LEFT JOIN menu_type mt 
+		on wml.menu_type_id = mt.id
+		LEFT JOIN weekly w 
+		on wml.weekly_id = w.id
+		LEFT JOIN menu m 
+		on wml.menu_id = m.id
+		
+		LEFT JOIN  (select * from menu_feedback 
+		where  wxid = #{wxid}
+		and DATE_FORMAT(good_time,'%Y-%m-%d') = #{goodTime})
+			mf
+		
+		on wml.menu_id = mf.menu_id
+		
+		where wml.weekly_id = #{weeklyId} 
+		and wml.menu_type_id = #{menuTypeId} 
+		and wml.time_slot_id = #{timeSlotId}
+				
+	</select>
+	
+	
+	<select id="queryWeeklySlotMenuList"  resultType="com.zhongzhou.dto.MenuDto">
+		select 
+			wml.menu_id menuId, wml.menu_type_id menuTypeId , wml.time_slot_id timeSlotId,   wml.weekly_id weeklyId, wml.id weeklyMenuListId,
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from weekly_menu_list wml 
+		LEFT JOIN time_slot t 
+		on wml.time_slot_id = t.id 
+		LEFT JOIN menu_type mt 
+		on wml.menu_type_id = mt.id
+		LEFT JOIN weekly w 
+		on wml.weekly_id = w.id
+		LEFT JOIN menu m 
+		on wml.menu_id = m.id
+		
+		where wml.weekly_id = #{weeklyId} 
+		and wml.time_slot_id = #{timeSlotId}
+				
+	</select>
+	
+	
+  
+  
+	<select id="queryWeeklyMenuName"  resultType="com.zhongzhou.dto.MenuDto">
+		<bind name="menuNameValue" value="'%' + menuName + '%'" />
+	
+		select 
+			ml.menu_id menuId, ml.menu_type_id menuTypeId , ml.time_slot_id timeSlotId,  
+			mt.name menuTypeName, t.name slotName, t.start_date startDate, t.end_date endDate ,
+			m.name menuName , m.picture_url menuPicUrl , m.price menuPrice
+		from menu_list ml 
+		LEFT JOIN time_slot t 
+		ON ml.time_slot_id = t.id
+		LEFT JOIN menu_type mt 
+		on ml.menu_type_id = mt.id
+		LEFT JOIN menu m 
+		on ml.menu_id = m.id
+
+		where  m.name like #{menuNameValue}
+		and ml.time_slot_id = #{timeSlotId}
+		
+		and ml.menu_id  
+			  not in
+		( 
+			select wml.menu_id from weekly_menu_list wml  
+			where wml.weekly_id = #{weeklyId}
+			and wml.time_slot_id = #{timeSlotId}
+		)
+
+	</select>
+  
+  
+  	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.Menu" useGeneratedKeys="true" keyProperty="id">
+	    insert into menu
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="name != null">
+	        name,
+	      </if>
+	      <if test="pictureUrl != null">
+	        picture_url,
+	      </if>
+	      <if test="price != null">
+	        price,
+	      </if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="name != null">
+	        #{name},
+	      </if>
+	      <if test="pictureUrl != null">
+	        #{pictureUrl},
+	      </if>
+	      <if test="price != null">
+	        #{price},
+	      </if>
+	    </trim>
+	</insert>
+	
+	<delete id="deleteId">
+	  delete from menu
+	  where id = #{id}
+	</delete>
+  
+  
+	<select id="queryId"  resultType="com.zhongzhou.entity.canteen.Menu">
+		select * from menu
+		where id = #{id}
+	</select>
+  
+	<update id="update" parameterType="com.zhongzhou.entity.canteen.Menu">
+        update menu
+        <set>
+        	<trim prefix="" suffix="" suffixOverrides=",">
+				<if test="name != null">
+					name = #{name},
+				</if>
+				<if test="pictureUrl != null">
+					picture_url = #{pictureUrl},
+				</if>
+				<if test="price != null">
+					price = #{price},
+				</if>
+			</trim>
+        </set>
+        where id = #{id}
+	</update>
+  
+</mapper>

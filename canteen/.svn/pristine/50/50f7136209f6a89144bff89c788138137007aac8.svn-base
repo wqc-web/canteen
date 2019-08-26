@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.UserDao">
+  
+	<select id="queryUser" parameterType="com.zhongzhou.entity.canteen.User" resultType="com.zhongzhou.entity.canteen.User">
+		select * from user
+		where username = #{username}
+		and password = #{password}
+	</select>
+	
+	<select id="queryId"   resultType="com.zhongzhou.entity.canteen.User">
+		select * from user
+		where id = #{id}
+	</select>
+	
+	<select id="queryUserName"   resultType="com.zhongzhou.entity.canteen.User">
+		<bind name="nameValue" value="'%' + name + '%'" />
+		
+		select * from user
+		
+		<if test="name != null">
+	       where name like  #{nameValue}
+        </if>
+		
+		limit #{startPage} , #{endPage}
+	</select>
+	
+	<select id="queryUserNameCount"   resultType="java.lang.Long">
+		<bind name="nameValue" value="'%' + name + '%'" />
+		
+		 select  count(*)  from user
+		 <if test="name != null">
+	       where name like  #{nameValue}
+        </if>
+	</select>
+  	
+  	<select id="queryUserPage"   resultType="com.zhongzhou.entity.canteen.User">
+		 select * from user
+		 limit #{startPage} , #{endPage}
+		 
+	</select>
+	
+	<select id="queryUserPageCount"   resultType="java.lang.Long">
+		 select  count(*)  from user
+	</select>
+  	
+  	<!-- 查询企业号信息 -->
+  	<select id="queryCorporateInfo" resultType="com.zhongzhou.entity.canteen.Corporate">
+  		select * from corporate where id=1
+  	</select>
+  	
+  	<select id="queryUserByWeixinid" parameterType="String" resultType="com.zhongzhou.entity.canteen.User">
+  		select 
+			id
+			username,
+			`password`,
+			`name`,
+			gender,
+			mobile,
+			email,
+			avatar,
+			wxid,
+			manager
+		from `user` where wxid=#{value}
+  	</select>
+  	
+
+  	<insert id="insert" parameterType="com.zhongzhou.entity.canteen.User" useGeneratedKeys="true" keyProperty="id">
+	    insert into user
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="username != null">
+	        username,
+	      </if>
+	      <if test="password != null">
+	        password,
+	      </if>
+	      <if test="name != null">
+	        name,
+	      </if>
+	      <if test="gender != null">
+	        gender,
+	      </if>
+	      <if test="mobile != null">
+	        mobile,
+	      </if>
+	      <if test="avatar != null">
+	        avatar,
+	      </if>
+	      <if test="wxid != null">
+	        wxid,
+	      </if>
+	      <if test="manager != null">
+	        manager,
+	      </if>
+	      <if test="email != null">
+	        email,
+	      </if>
+	    </trim>
+	    
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="username != null">
+	        #{username},
+	      </if>
+	      <if test="password != null">
+	        #{password},
+	      </if>
+	      <if test="name != null">
+	        #{name},
+	      </if>
+	      <if test="gender != null">
+	        #{gender},
+	      </if>
+	      <if test="mobile != null">
+	        #{mobile},
+	      </if>
+	      <if test="avatar != null">
+	        #{avatar},
+	      </if>
+	      <if test="wxid != null">
+	        #{wxid},
+	      </if>
+	      <if test="manager != null">
+	        #{manager},
+	      </if>
+	      <if test="email != null">
+	        #{email},
+	      </if>
+	    </trim>
+	</insert>
+  	
+  	
+  	<delete id="deleteId">
+	  delete from user
+	  where id = #{id}
+	</delete>
+  	
+</mapper>

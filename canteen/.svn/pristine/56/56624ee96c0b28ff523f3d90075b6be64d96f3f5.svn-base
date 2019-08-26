@@ -1,0 +1,33 @@
+package com.zhongzhou.service.canteen.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zhongzhou.dao.canteen.WeeklyMenuListDao;
+import com.zhongzhou.entity.canteen.WeeklyMenuList;
+import com.zhongzhou.service.canteen.WeeklyMenuListService;
+
+/** 
+ *	周几 菜单 service impl
+ */
+@Service
+public class WeeklyMenuListServiceImpl implements WeeklyMenuListService{
+
+	/**
+	 *  注入 dao对象
+	 */
+	@Autowired
+	WeeklyMenuListDao weeklyMenuListDao;
+	
+	
+	 /**
+     *	删除 传递的对象
+     */
+	@Override
+	public Long deleteObj(WeeklyMenuList weeklyMenuList) {
+		return weeklyMenuListDao.deleteObj(weeklyMenuList);
+	}
+
+	
+	
+}

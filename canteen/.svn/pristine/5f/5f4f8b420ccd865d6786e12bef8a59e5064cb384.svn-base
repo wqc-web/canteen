@@ -1,0 +1,33 @@
+package com.zhongzhou.service.canteen;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.zhongzhou.entity.canteen.Corporate;
+import com.zhongzhou.entity.canteen.User;
+
+/**
+ * 用户service  
+ *
+ */
+public interface UserService {
+
+	/**
+	 *  查询对象 返回对象
+	 */
+	User queryUser(User user);
+	
+	
+	Corporate queryCorporateInfo();
+	
+	User queryUserByWeixinid(String weixinid);
+	
+	long insert(User user);
+	
+	
+	/**
+	 *  分页查询用户
+	 */
+	List<User> queryUserPage( Integer startPage,  Integer endPage);
+}

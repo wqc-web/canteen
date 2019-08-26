@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>留言详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/layui/css/layui.css">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/lau/lau.css">
+    <link href="${Session.BASE_URL}/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${Session.BASE_URL}/lying/css/common.css">
+    <link rel="stylesheet" href="${Session.BASE_URL}/plugins/formSelects/formSelects-v4.css" />
+    <style>
+        body{
+            background: #ffffff;
+        }
+        .demo1{
+            width: 25%;
+            text-align: right;
+            line-height: 38px;
+        }
+        .layui-card-body{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+<div class="layui-card" style="padding-left: 20px;">
+    <div class="layui-card-body">
+        <div class="demo1">
+            <img id="avatar" src="${Session.BASE_URL}/img/touxiang.png" style="width: 50px;height: 50px;">
+        </div>
+        <div style="width: 90%;">
+            <div id="name"></div>
+            <div id="time"></div>
+            <div id="content"></div>
+            <div>
+                <img id="picurl" src="" style="width: 120px;height: 80px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${Session.BASE_URL}/lying/layui/layui.js"></script>
+<script src="${Session.BASE_URL}/plugins/jquery-1.11.0.min.js"></script>
+
+<script>
+    $(function(){
+        var id = "${id}";
+        console.log(id);
+        if(id!=null && id!=""){
+            $.ajax({
+                url:'${Session.BASE_URL}/message/messageDetail',
+                data:{"id":id},
+                success:function (result) {
+                    console.log(result)
+                    if(result.code=='200'){
+                        $("#name").html(result.data.name);
+                        if(result.data.avatar!=null && result.data.avatar!=""){
+                            $("#avatar").attr("src","${Session.BASE_URL}/"+result.data.avatar);
+                        }
+                        if(result.data.content!=null && result.data.content!=""){
+                            $("#content").html(result.data.content);
+                        }
+                        if(result.data.time!=null && result.data.time!=""){
+                            $("#time").html(format(result.data.time));
+                        }
+                        if(result.data.picurl!=null && result.data.picurl!=""){
+                            $("#picurl").attr("src","${Session.BASE_URL}/"+result.data.picurl);
+                        }
+                    }
+                }
+            })
+        }
+    })
+
+    function add0(m){return m<10?'0'+m:m }
+
+    function format(timestamp) {
+        //timestamp是整数，否则要parseInt转换,不会出现少个0的情况
+        if(timestamp!=null && timestamp!=""){
+            var time = new Date(timestamp);
+            var year = time.getFullYear();
+            var month = time.getMonth() + 1;
+            var date = time.getDate();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            return year + '-' + add0(month) + '-' + add0(date) + ' ' + add0(hours) + ':' + add0(minutes) + ':' + add0(seconds);
+        }else{
+            return "";
+        }
+    }
+
+</script>
+
+</body>
+</html>

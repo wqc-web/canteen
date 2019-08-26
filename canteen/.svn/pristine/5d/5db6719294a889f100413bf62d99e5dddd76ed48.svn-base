@@ -1,0 +1,25 @@
+package com.zhongzhou.service.canteen;
+
+import com.zhongzhou.entity.canteen.Corporate;
+import com.zhongzhou.entity.canteen.User;
+
+/**
+ * 用户service  
+ *
+ */
+public interface UserService {
+
+	/**
+	 *  查询对象 返回对象
+	 */
+	User queryUser(User user);
+	
+	
+	Corporate queryCorporateInfo();
+	
+	User queryUserByWeixinid(String weixinid);
+	
+	long insert(User user);
+	
+	
+}

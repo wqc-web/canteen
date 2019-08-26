@@ -1,0 +1,69 @@
+<style type="text/css">
+			body {
+				padding: 0;
+				font: 12px "宋体";
+			}
+			
+			#lib_Tab1_sx {
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				padding-top: 20px;
+				padding-left: 20px;
+				margin-bottom: 15px;
+				overflow: hidden;
+			}
+			
+			.lib_tabborder_sx {
+				padding-top: 20px;
+			}
+			
+			.lib_Menubox_sx {
+				line-height: 28px;
+				position: relative;
+				float: left;
+				width: 130px;
+				height: 100%;
+			}
+			
+			.lib_Menubox_sx ul {
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				position: absolute;
+				/*margin-left: 10px;
+				height: 25px;*/
+				text-align: center;
+			}
+			
+			.lib_Menubox_sx li {
+				display: block;
+				cursor: pointer;
+				width: 114px;
+				color: #949694;
+				font-weight: bold;
+				/*margin-bottom: 5px;*/
+				/*height: 25px;*/
+				/*line-height: 25px;*/
+				background-color: #E4F2FD
+			}
+			
+			.lib_Menubox_sx li.hover {
+				padding: 0px;
+				background: #fff;
+				width: 100%;
+				border: 1px solid #95C9E1;
+				border-right: 0;
+				color: #739242;
+				height: 90px;
+				line-height: 25px;
+			}
+			
+			.lib_Contentbox_sx {
+				margin-top: 0px;
+				border-top: none;
+				padding: 20px;
+				border-left: 0;
+			}
+			
+		</style>

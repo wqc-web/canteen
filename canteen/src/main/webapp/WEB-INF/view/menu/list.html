@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>菜单管理</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/layui/css/layui.css">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/lau/lau.css">
+        <link href="${Session.BASE_URL}/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="${Session.BASE_URL}/lying/css/common.css">
+        <link rel="stylesheet" href="${Session.BASE_URL}/css/HRPD.css">
+        <script type="text/javascript" src="${Session.BASE_URL}/js/jquery-3.3.1.js"></script>
+        <link rel="stylesheet" href="${Session.BASE_URL}/css/jquery.pagination.css" />
+
+        <style>
+            @media screen and (max-width: 1400px) {
+                body{
+                    overflow-x: auto;
+                }
+            }
+            .buttons:hover,.types div:hover{
+                cursor:pointer;
+            }
+            .demo-class .layui-layer-title {
+                background: #445A81;
+                color: #ffffff;
+                text-align: center;
+            }
+            .layui-btn-sm{
+                line-height: 38px;
+                height: 38px;
+            }
+            #keys:hover{
+                border-color: #445A81!important;
+            }
+            .active{
+                color: #FFFFFF;
+                background: #445A81;
+                border-radius: 5px 5px 0 0;
+            }
+            .active1{
+                color: #445A81;
+                background: #ffffff;
+            }
+            .item{
+                width:180px;
+                height: 190px;
+                margin: 20px 0 0 20px;
+                float: left;
+                border: 1px solid #00000014;
+                border-radius: 10px;
+            }
+            .page {
+                width: 80%;
+                height: 10%;
+                /* 	border: 1px solid lightgray; */
+                margin-top: 1%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                color: gray;
+                font-size: .2rem;
+            }
+
+            .page1 {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body style="height:100%;padding:15px;">
+        <div style="width: 100%;padding: 10px;background: #CCE4F7;"><img style="margin-right: 10px;" src="${Session.BASE_URL}/img/location.png">当前位置  ：  排名管理 >> <span id="title">早餐</span> >> <span id="title1" style="color: #226EFA;">主食</span></div>
+        <div class="layui-card" style="margin-bottom: 0;margin-top: 20px;">
+            <div class="layui-card-header" style="display: flex;border-bottom: none;height:50px;line-height:50px;padding:0px;border-bottom: 1px solid #ececec;">
+                <div style="width: 100%;">
+                    <div class="layui-input-inline" style="width: 240px;margin-left: 20px;">
+                        <input type="text" name="title" required lay-verify="required" id="keys" placeholder="请输入菜品名"
+                               autocomplete="off" class="layui-input " style="background: rgba(255,255,255,0.04);color: #00000070;;">
+                    </div>
+                    <button id="searchs" class="layui-btn layui-btn-normal layui-btn-sm" onclick="searchs()" style="background-color:#017AD7;margin-left: 20px;padding:0 40px;border-radius: 5px;">
+                        <i class="layui-icon layui-icon-search"></i>搜索
+                    </button>
+                    <button id="" class="layui-btn layui-btn-normal layui-btn-sm" onclick="addMenu()" style="background-color:#E89300;width: 110px;border-radius: 5px;margin-left: 50px;">
+                        <i class="layui-icon layui-icon-add-1"></i>添加菜谱
+                    </button>
+                </div>
+            </div>
+            <div class="layui-card-header" style="display: flex;border-bottom: none;height:40px;line-height:40px;padding:0px;">
+                <div class="types1" style="display: flex;border:1px solid #ececec;color:#00000082;background: #CDD0D5;">
+                    <!--<div class="active1" style="width: 130px;text-align: center;" data-flag="1" onclick="changeFlag1(this)">主食</div>
+                    <div style="width: 130px;text-align: center;" data-flag="2" onclick="changeFlag1(this)">小菜</div>
+                    <div style="width: 130px;text-align: center;" data-flag="3" onclick="changeFlag1(this)">水果</div>
+                    <div style="width: 130px;text-align: center;" data-flag="4" onclick="changeFlag1(this)">点心</div>
+                    <div style="width: 130px;text-align: center;" data-flag="5" onclick="changeFlag1(this)">粥类</div>
+                    <div style="width: 130px;text-align: center;" data-flag="6" onclick="changeFlag1(this)">饮品</div>-->
+                </div>
+            </div>
+        </div>
+        <div id="list1" style="width: 1020px;height: 430px;">
+            <!--<div class="item">
+                <div style="width: 100%;height: 145px;border-bottom: 1px solid #00000014;">
+                    <div style="width: 100%;height: 25px;">
+
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="${Session.BASE_URL}/img/caidan.png" style="width: 120px;height: 80px;">
+                    </div>
+                    <div style="width: 100%;height: 30px;line-height:30px;text-align: center;">
+                        雪菜烧鸭腿
+                    </div>
+                </div>
+                <div style="width: 100%;height: 45px;display: flex;">
+                    <div class="buttons" onclick="editMenu()" style="width: 50%;height: 100%;line-height:45px;border-right: 1px solid #00000014;text-align: center;color: #009AEB;">
+                        修改
+                    </div>
+                    <div class="buttons" onclick="deleteMenu()" style="width: 50%;height: 100%;line-height:45px;text-align: center;color: red;">
+                        删除
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+
+        <div class="page" >
+            <div id="pagination3" class="page1"></div>
+        </div>
+        
+        <br/><br/>
+        <!-- 版本历史 -->
+	    <div style="width: 100%; " align="center">
+	    	 <a href="${Session.BASE_URL}/menu/version" target="_blank">版本历史</a>
+	    </div>
+    </body>
+    <script src="${Session.BASE_URL}/lying/layui/layui.js"></script>
+    <script type="text/javascript" src="${Session.BASE_URL}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${Session.BASE_URL}/js/jquery.pagination.min.js"></script>
+    <script type="text/html" id="zizeng">
+        {{d.LAY_TABLE_INDEX + 1}}
+    </script>
+    <script type="text/javascript">
+        var type=1;
+        var menuList="";
+        var menuList1="";
+        /*var page=0;
+        var rows=10;*/
+        $(function(){
+            //早餐加载菜单
+            $.ajax({
+                url:"${Session.BASE_URL}menuType/queryList",
+                type : 'POST',
+                success:function (result) {
+                    for(var i =0;i<result.length;i++){
+                        if(i==0){
+                            menuList='<div class="active1" style="width: 130px;text-align: center;" data-flag="'+result[i].id+'" onclick="changeFlag1(this)">'+result[i].name+'</div>';
+                        }else{
+                            menuList+='<div style="width: 130px;text-align: center;" data-flag="'+result[i].id+'" onclick="changeFlag1(this)">'+result[i].name+'</div>';
+                        }
+                    }
+                    $(".types1").html(menuList);
+                }
+            })
+
+            load(1,10);
+
+            $("#pagination3").pagination({
+                currentPage : 1,
+                totalPage : 5,
+                isShow : true,
+                count : 10,
+                homePageText : "首页",
+                endPageText : "尾页",
+                prevPageText : "上一页",
+                nextPageText : "下一页",
+                callback : function(current) {
+                    console.log("current:"+current);
+                    //根据类型查新闻
+
+                    var page=current;
+                    var rows=10;
+                    load(page,rows);
+                }
+            });
+        })
+
+        //加载菜单
+        function load(page,rows){
+            var html="";
+            var url = "${Session.BASE_URL}menu/queryMenuTypeIsMenuPage";
+            console.log(url)
+            $.ajax({
+                url:url,
+                type : 'GET',
+                data:{
+                    /*'timeSlotId':flag,*/
+                    'menuTypeId':type,
+                    'pageNumber':page,
+                    'pageSize':rows,
+                    'menuName':""
+                },
+                success:function (result) {
+                    if(result!=null && result!=""){
+                        for(var i=0;i<result.length;i++){
+
+                            html+='<div class="item">\n' +
+                                '                <div style="width: 100%;height: 145px;border-bottom: 1px solid #00000014;">\n' +
+                                '                    <div style="width: 100%;height: 25px;">\n' +
+                                '\n' +
+                                '                    </div>\n' +
+                                '                    <div style="text-align: center;">\n' +
+                                '                        <img src="${Session.BASE_URL}/'+result[i].menuPicUrl+'" style="width: 120px;height: 80px;">\n' +
+                                '                    </div>\n' +
+                                '                    <div style="width: 100%;height: 30px;line-height:30px;text-align: center;">'+result[i].menuName+'</div>\n' +
+                                '                </div>\n' +
+                                '                <div style="width: 100%;height: 45px;display: flex;">\n' +
+                                '                    <div class="buttons" onclick="editMenu(this)" data-id="'+result[i].menuId+'"   data-name="'+result[i].menuName+'" data-url="'+result[i].menuPicUrl+'" data-type="'+result[i].menuTypeId+'" style="width: 50%;height: 100%;line-height:45px;border-right: 1px solid #00000014;text-align: center;color: #009AEB;">\n' +
+                                '                        修改\n' +
+                                '                    </div>\n' +
+                                '                    <div class="buttons" onclick="deleteMenu(this)" data-id="'+result[i].menuId+'" style="width: 50%;height: 100%;line-height:45px;text-align: center;color: red;">\n' +
+                                '                        删除\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>';
+                        }
+                    }
+                    $("#list1").html(html);
+                }
+            })
+        }
+
+
+        function changeFlag1(s){
+            type = $(s).attr("data-flag");
+            var name = $(s).html();
+            $("#title1").html(name);
+
+            load(1,10);
+
+            $("#pagination3").pagination({
+                currentPage : 1,
+                totalPage : 5,
+                isShow : true,
+                count : 10,
+                homePageText : "首页",
+                endPageText : "尾页",
+                prevPageText : "上一页",
+                nextPageText : "下一页",
+                callback : function(current) {
+                    console.log("current:"+current);
+                    //根据类型查新闻
+
+                    var page=current;
+                    var rows=10;
+                    load(page,rows);
+                }
+            });
+
+            console.log(type)
+            console.log(name)
+            $("body .types1 div").removeClass("active1");
+            $(s).addClass("active1");
+        }
+        //搜索
+        function searchs(){
+            //加载菜单
+            var html="";
+            $.ajax({
+                url:"${Session.BASE_URL}menu/queryMenuTypeIsMenuPage",
+                type : 'POST',
+                data:{
+                    /*'timeSlotId':flag,*/
+                    'menuTypeId':type,
+                    'pageNumber':1,
+                    'pageSize':10,
+                    'menuName':$("#keys").val()
+                },
+                success:function (result) {
+                    if(result!=null && result!=""){
+                        for(var i=0;i<result.length;i++){
+
+                            html+='<div class="item">\n' +
+                                '                <div style="width: 100%;height: 145px;border-bottom: 1px solid #00000014;">\n' +
+                                '                    <div style="width: 100%;height: 25px;">\n' +
+                                '\n' +
+                                '                    </div>\n' +
+                                '                    <div style="text-align: center;">\n' +
+                                '                        <img src="${Session.BASE_URL}/'+result[i].menuPicUrl+'" style="width: 120px;height: 80px;">\n' +
+                                '                    </div>\n' +
+                                '                    <div style="width: 100%;height: 30px;line-height:30px;text-align: center;">'+result[i].menuName+'</div>\n' +
+                                '                </div>\n' +
+                                '                <div style="width: 100%;height: 45px;display: flex;">\n' +
+                                '                    <div class="buttons" onclick="editMenu(this)" data-id="'+result[i].menuId+'"   data-name="'+result[i].menuName+'" data-url="'+result[i].menuPicUrl+'" style="width: 50%;height: 100%;line-height:45px;border-right: 1px solid #00000014;text-align: center;color: #009AEB;">\n' +
+                                '                        修改\n' +
+                                '                    </div>\n' +
+                                '                    <div class="buttons" onclick="deleteMenu(this)" data-id="'+result[i].menuId+'" style="width: 50%;height: 100%;line-height:45px;text-align: center;color: red;">\n' +
+                                '                        删除\n' +
+                                '                    </div>\n' +
+                                '                </div>\n' +
+                                '            </div>';
+                        }
+                    }
+                    $("#list1").html(html);
+                }
+            })
+
+        }
+
+        //添加菜单
+        function addMenu(){
+            console.log("---"+type)
+            layui.config({base: '${Session.BASE_URL}lying/'}).use(['table'], function(){
+                var table = layui.table;
+
+                layer.open({
+                    type: 2,
+                    title: "添加菜单",
+                    shadeClose: true,
+                    skin: 'demo-class',
+                    area: ['500px', '460px'],
+                    maxmin: true,
+                    content: '${Session.BASE_URL}menu/menu/edit'
+                });
+
+            });
+        }
+
+        //修改菜单
+        function editMenu(s){
+            var id = $(s).attr("data-id");
+            var names =$(s).attr("data-name");
+            var menuTypeId = $(s).attr("data-type");
+            var pictureUrl="";
+            if($(s).attr("data-url")!=null){
+                pictureUrl = $(s).attr("data-url");
+            }
+
+            layui.config({base: '${Session.BASE_URL}lying/'}).use(['table'], function(){
+                var table = layui.table;
+
+                layer.open({
+                    type: 2,
+                    title: "修改菜单",
+                    shadeClose: true,
+                    skin: 'demo-class',
+                    area: ['500px', '460px'],
+                    maxmin: true,
+                    content: '${Session.BASE_URL}menu/menu/edit?id='+id+'&name='+names+'&pictureUrl='+pictureUrl+'&menuTypeId='+menuTypeId
+                });
+
+            });
+        }
+
+        //删除菜单
+        function deleteMenu(s){
+            window.parent.layui.layer.confirm('您确定要删除吗？', function (index) {
+                $.ajax({
+                    url: '${Session.BASE_URL}menu/deleteMenuId',
+                    data: {"menuId": $(s).attr("data-id")},
+                    success: function (result) {
+                        if (result.code == '200') {
+                            window.location.reload();
+                        }
+                        window.parent.layui.layer.msg(result.msg);
+                    }
+                })
+
+                window.parent.layui.layer.close(index);
+            });
+        }
+    </script>
+</html>

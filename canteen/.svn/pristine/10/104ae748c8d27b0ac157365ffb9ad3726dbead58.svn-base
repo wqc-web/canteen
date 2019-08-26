@@ -1,0 +1,43 @@
+package com.zhongzhou.service.canteen.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.zhongzhou.dao.canteen.MenuMessageDao;
+import com.zhongzhou.dto.MenuMessageDto;
+import com.zhongzhou.service.canteen.MenuMessageService;
+
+
+/**
+ *	菜单消息
+ */
+@Service
+public class MenuMessageServiceImpl implements MenuMessageService{
+
+	/**
+	 *  注入 dao对象
+	 */
+	@Autowired
+	MenuMessageDao menuMessageDao;
+
+	
+	/**
+	 *	菜单消息分页查询
+	 */
+	@Override
+	public List<MenuMessageDto> queryMenuMessagePage(Integer lr, Integer startPage, Integer endPage) {
+		return menuMessageDao.queryMenuMessagePage(lr, startPage, endPage);
+	}
+
+	/**
+	 * 	删除指定id
+	 */
+	@Override
+	public Long deleteId(Integer id) {
+		return menuMessageDao.deleteId(id);
+	}
+	
+	
+	
+}

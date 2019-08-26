@@ -1,0 +1,1878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MeetingNotice:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="e330ccf4-8c6c-4ea4-b1df-4359a5eec43c" name="Default" comment="第一次">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_7_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_websocket_javax_websocket_api_1_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MeetingNotice_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/MeetingNotice_war_exploded.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/MeetingNotice.iml" afterPath="$PROJECT_DIR$/MeetingNotice.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongzhou/generator/Orange1438Test.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhongzhou/generator/Orange1438Test.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhongzhou/websocket/WebSocket.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhongzhou/websocket/WebSocket.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
+      <change beforePath="$PROJECT_DIR$/target" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-dao.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-service.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-tx.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-mvc.xml" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/artifacts/LingAdmin_war.xml" />
+    <ignored path=".idea/artifacts/LingAdmin_war_exploded.xml" />
+    <ignored path=".idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+    <ignored path=".idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_7.xml" />
+    <ignored path=".idea/libraries/Maven__ch_qos_logback_logback_core_1_1_7.xml" />
+    <ignored path=".idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_2.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_2.xml" />
+    <ignored path=".idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_github_miemiedev_mybatis_paginator_1_2_15.xml" />
+    <ignored path=".idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_3.xml" />
+    <ignored path=".idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml" />
+    <ignored path=".idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_3.xml" />
+    <ignored path=".idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
+    <ignored path=".idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" />
+    <ignored path=".idea/libraries/Maven__commons_io_commons_io_1_3_2.xml" />
+    <ignored path=".idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
+    <ignored path=".idea/libraries/Maven__commons_net_commons_net_3_3.xml" />
+    <ignored path=".idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+    <ignored path=".idea/libraries/Maven__javax_servlet_jsp_api_2_0.xml" />
+    <ignored path=".idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
+    <ignored path=".idea/libraries/Maven__javax_xml_rpc_javax_xml_rpc_api_1_1_1.xml" />
+    <ignored path=".idea/libraries/Maven__jstl_jstl_1_2.xml" />
+    <ignored path=".idea/libraries/Maven__junit_junit_4_12.xml" />
+    <ignored path=".idea/libraries/Maven__mysql_mysql_connector_java_5_1_32.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_ant_ant_1_8_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_ant_ant_launcher_1_8_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_axis_axis_1_4.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_examples_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_excelant_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_poi_poi_scratchpad_3_17.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_shiro_shiro_core_1_2_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" />
+    <ignored path=".idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" />
+    <ignored path=".idea/libraries/Maven__org_freemarker_freemarker_2_3_19.xml" />
+    <ignored path=".idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+    <ignored path=".idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_5_chinese_annotation_by_orange1438.xml" />
+    <ignored path=".idea/libraries/Maven__org_mybatis_mybatis_3_2_8.xml" />
+    <ignored path=".idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_7.xml" />
+    <ignored path=".idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_aop_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_aspects_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_beans_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_context_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_context_support_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_core_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_expression_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_jdbc_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_tx_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_web_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_webmvc_4_2_6_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
+    <ignored path=".idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+    <ignored path=".idea/compiler.xml" />
+    <ignored path=".idea/encodings.xml" />
+    <ignored path=".idea/misc.xml" />
+    <ignored path=".idea/modules.xml" />
+    <ignored path=".idea/uiDesigner.xml" />
+    <ignored path=".idea/vcs.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="scanning.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/scanning.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2673">
+              <caret line="99" column="23" lean-forward="false" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+              <folding>
+                <marker date="1547793503886" expanded="true" signature="5435:5502" ph="..." />
+                <marker date="1547793503886" expanded="true" signature="5532:5540" ph="&amp;##12288;" />
+                <marker date="1547793503886" expanded="true" signature="12602:12665" ph="..." />
+                <marker date="1547793503886" expanded="true" signature="12735:12785" ph="..." />
+                <marker date="1547793503886" expanded="true" signature="14952:14953" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/group/input.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4428">
+              <caret line="164" column="29" lean-forward="false" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/input.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wxinput.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/wxinput.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1026">
+              <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5508">
+              <caret line="204" column="13" lean-forward="false" selection-start-line="195" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/TestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+              <folding>
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/websocket/WebSocket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="websocket.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/websocket.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9413">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GroupMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+              <folding>
+                <marker date="1547785034065" expanded="true" signature="4217:4319" ph="select from group" />
+                <marker date="1547785034065" expanded="true" signature="4405:4461" ph="delete from group... " />
+                <marker date="1547785034065" expanded="true" signature="4561:4579" ph="delete from group... " />
+                <marker date="1547785034065" expanded="true" signature="4795:5039" ph="insert into group... " />
+                <marker date="1547785034065" expanded="true" signature="7832:7859" ph="select count... group" />
+                <marker date="1547785034065" expanded="true" signature="8783:9067" ph="update group... " />
+                <marker date="1547785034065" expanded="true" signature="9273:9746" ph="update group... " />
+                <marker date="1547785034065" expanded="true" signature="9841:10093" ph="update group... " />
+                <marker date="1547785034065" expanded="true" signature="16182:16525" ph="SELECT g.id,... groups" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>com.zhongzhou</find>
+      <find>SysUser</find>
+      <find>LingAdmin</find>
+      <find>tags={</find>
+      <find>xyz.linghuayicao</find>
+      <find>language</find>
+      <find>anguage:</find>
+      <find>anguage</find>
+      <find>cou</find>
+      <find>countByExample</find>
+      <find>font</find>
+      <find>Arial</find>
+      <find>toolbar</find>
+      <find>searchForm</find>
+      <find>javaee-api</find>
+      <find>javax.websocket.version</find>
+      <find>fast</find>
+      <find>Criteria</find>
+      <find>Roomid</find>
+      <find>TSysDepart</find>
+      <find>分组</find>
+      <find>group</find>
+      <find>queryMeetingNow</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>xyz.linghuayicao</replace>
+      <replace>TSysUser</replace>
+      <replace>com.zhongzhou</replace>
+      <replace>ElectronicGuideCriteria</replace>
+      <replace>RoomCriteria</replace>
+      <replace>GroupCriteria</replace>
+      <replace>GroupUserCriteria</replace>
+      <replace>group</replace>
+      <replace>Group</replace>
+      <replace>room</replace>
+      <replace>会议室</replace>
+      <replace>groups</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\WorkProject\WEB\MeetingNotice\src\main\java\xyz</dir>
+      <dir>D:\WorkProject\WEB\MeetingNotice</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/FileController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/usergroup/input.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/plugins/CKeditor/ckeditor.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/generator/Orange1438Test.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/ElectronicGuideServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/ElectronicGuideService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/ElectronicGuideServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ElectronicGuideMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/system/TSysFileService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/system/impl/TSysFileServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/NoInterception.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/meeting/list.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/input.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/wxinput.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/sys_index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/list.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/ElectronicGuideController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/interceptor/SystemInterceptor.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/websocket.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/websocket/WebSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/Meetings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/MeetingsCriteria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/RoomServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/RoomService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/RoomController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/RoomMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GroupUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/GroupUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/GroupUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/GroupService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/dao/GroupDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/GroupServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/GroupController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/group/input.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/MeetingController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/dao/MeetingsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/MeetingsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/service/MeetingsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/WeixinController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GroupMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/scanning.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="624" />
+    <option name="y" value="179" />
+    <option name="width" value="1059" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhongzhou" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhongzhou" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zhongzhou" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="electronicguide" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="group" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="room" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="showmeeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MeetingNotice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MeetingNotice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.JRebelSettingsComponent" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebDemo" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.43333334" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="270" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="270" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth5" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder5" value="5" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="270" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="270" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth5" value="269" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder5" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zhongzhou.controller" />
+      <recent name="xyz.linghuayicao.swaggerapi" />
+      <recent name="com.zhongzhou.dao.system" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkProject\MeetingNotice\src\main\webapp\WEB-INF\system\html" />
+      <recent name="D:\WorkProject\MeetingNotice\src\main\webapp\img" />
+      <recent name="D:\WorkProject\MeetingNotice\src\main\webapp\plugins\CKeditor" />
+      <recent name="D:\WorkProject\MeetingNotice\src\main\webapp\WEB-INF\view" />
+      <recent name="D:\WorkProject\WEB\MeetingNotice\src\main\webapp\plugins" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.MeetingNotice">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Orange1438Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.zhongzhou.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.zhongzhou.generator.Orange1438Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="MeetingNotice" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="LingAdmin" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="MeetingNotice" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.28" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="MeetingNotice:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/MeetingNotice" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_LingAdmin" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52868" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="52869" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="MeetingNotice:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.MeetingNotice" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Orange1438Test" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Orange1438Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" cleanupOnStartRun="true">
+    <configuration useDefault="false">C:\Program Files\TortoiseSVN</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\WorkProject\MeetingNotice" />
+          <option name="myCopyRoot" value="D:\WorkProject\MeetingNotice" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\WorkProject\MeetingNotice" />
+          <option name="myCopyRoot" value="D:\WorkProject\MeetingNotice" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e330ccf4-8c6c-4ea4-b1df-4359a5eec43c" name="Default" comment="" />
+      <created>1539050504452</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539050504452</updated>
+      <workItem from="1539050515434" duration="12735000" />
+      <workItem from="1539133487020" duration="12567000" />
+      <workItem from="1539219509001" duration="3746000" />
+      <workItem from="1539308057354" duration="8000" />
+      <workItem from="1540969413849" duration="553000" />
+      <workItem from="1541058703839" duration="1313000" />
+      <workItem from="1541119133659" duration="691000" />
+      <workItem from="1542006489332" duration="2348000" />
+      <workItem from="1542069528249" duration="590000" />
+      <workItem from="1542852885075" duration="1020000" />
+      <workItem from="1543366302056" duration="2411000" />
+      <workItem from="1543373798031" duration="4438000" />
+      <workItem from="1543820284605" duration="893000" />
+      <workItem from="1543972402339" duration="2449000" />
+      <workItem from="1544086001233" duration="4407000" />
+      <workItem from="1544144552332" duration="5575000" />
+      <workItem from="1544150967952" duration="1349000" />
+      <workItem from="1544429968503" duration="244000" />
+      <workItem from="1544430253722" duration="818000" />
+      <workItem from="1544498384103" duration="194000" />
+      <workItem from="1544498772333" duration="58000" />
+      <workItem from="1544498979733" duration="25000" />
+      <workItem from="1544499438540" duration="879000" />
+      <workItem from="1544502700229" duration="466000" />
+      <workItem from="1544503264939" duration="9047000" />
+      <workItem from="1544685383049" duration="10638000" />
+      <workItem from="1544697075277" duration="35000" />
+      <workItem from="1544748985437" duration="12959000" />
+      <workItem from="1544836459640" duration="24088000" />
+      <workItem from="1545007805306" duration="6073000" />
+      <workItem from="1545036846510" duration="672000" />
+      <workItem from="1545094822115" duration="1414000" />
+      <workItem from="1545098061103" duration="108000" />
+      <workItem from="1545102367580" duration="5561000" />
+      <workItem from="1545201362191" duration="235000" />
+      <workItem from="1545380810991" duration="717000" />
+      <workItem from="1545616710809" duration="479000" />
+      <workItem from="1546419987993" duration="24000" />
+      <workItem from="1546590541145" duration="4332000" />
+      <workItem from="1546822931701" duration="5297000" />
+      <workItem from="1547122443912" duration="186000" />
+      <workItem from="1547708493967" duration="3864000" />
+      <workItem from="1547714057992" duration="7862000" />
+      <workItem from="1547722214832" duration="139000" />
+      <workItem from="1547773286430" duration="1740000" />
+      <workItem from="1547775166448" duration="75000" />
+      <workItem from="1547775294148" duration="14667000" />
+      <workItem from="1547795404028" duration="676000" />
+      <workItem from="1548154237647" duration="429000" />
+      <workItem from="1548855333553" duration="716000" />
+      <workItem from="1550211398094" duration="730000" />
+      <workItem from="1550213599966" duration="419000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一次">
+      <created>1539069651199</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539069651199</updated>
+    </task>
+    <task id="LOCAL-00002" summary="第一次">
+      <created>1544511885128</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544511885128</updated>
+    </task>
+    <task id="LOCAL-00003" summary="第一次">
+      <created>1544511961139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544511961139</updated>
+    </task>
+    <task id="LOCAL-00004" summary="第一次">
+      <created>1544513149138</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544513149138</updated>
+    </task>
+    <task id="LOCAL-00005" summary="第一次">
+      <created>1544513403136</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1544513403136</updated>
+    </task>
+    <task id="LOCAL-00006" summary="第一次">
+      <created>1544513430126</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1544513430126</updated>
+    </task>
+    <task id="LOCAL-00007" summary="第一次">
+      <created>1544513571120</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1544513571120</updated>
+    </task>
+    <task id="LOCAL-00008" summary="第一次">
+      <created>1544513592123</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544513592123</updated>
+    </task>
+    <task id="LOCAL-00009" summary="第一次">
+      <created>1544685469111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544685469111</updated>
+    </task>
+    <task id="LOCAL-00010" summary="第一次">
+      <created>1544686499128</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544686499128</updated>
+    </task>
+    <task id="LOCAL-00011" summary="第一次">
+      <created>1544687455138</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1544687455138</updated>
+    </task>
+    <task id="LOCAL-00012" summary="第一次">
+      <created>1544696675137</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544696675137</updated>
+    </task>
+    <task id="LOCAL-00013" summary="第一次">
+      <created>1544778020130</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1544778020130</updated>
+    </task>
+    <task id="LOCAL-00014" summary="第一次">
+      <created>1544854535133</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544854535134</updated>
+    </task>
+    <task id="LOCAL-00015" summary="第一次">
+      <created>1544858176125</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1544858176125</updated>
+    </task>
+    <task id="LOCAL-00016" summary="第一次">
+      <created>1544860815146</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1544860815147</updated>
+    </task>
+    <task id="LOCAL-00017" summary="第一次">
+      <created>1544864569129</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1544864569129</updated>
+    </task>
+    <task id="LOCAL-00018" summary="第一次">
+      <created>1544866072129</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544866072129</updated>
+    </task>
+    <task id="LOCAL-00019" summary="第一次">
+      <created>1544866680121</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1544866680121</updated>
+    </task>
+    <task id="LOCAL-00020" summary="第一次">
+      <created>1545012093357</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545012093357</updated>
+    </task>
+    <task id="LOCAL-00021" summary="第一次">
+      <created>1545012586127</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1545012586127</updated>
+    </task>
+    <task id="LOCAL-00022" summary="第一次">
+      <created>1545036892328</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1545036892328</updated>
+    </task>
+    <task id="LOCAL-00023" summary="第一次">
+      <created>1545036928194</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1545036928194</updated>
+    </task>
+    <task id="LOCAL-00024" summary="第一次">
+      <created>1545108967134</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1545108967134</updated>
+    </task>
+    <task id="LOCAL-00025" summary="第一次">
+      <created>1546826628142</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546826628142</updated>
+    </task>
+    <task id="LOCAL-00026" summary="第一次">
+      <created>1547713364113</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1547713364113</updated>
+    </task>
+    <task id="LOCAL-00027" summary="第一次">
+      <created>1547714633130</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714633130</updated>
+    </task>
+    <task id="LOCAL-00028" summary="第一次">
+      <created>1547714675128</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714675128</updated>
+    </task>
+    <task id="LOCAL-00029" summary="第一次">
+      <created>1547714705128</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714705128</updated>
+    </task>
+    <task id="LOCAL-00030" summary="第一次">
+      <created>1547714726111</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714726111</updated>
+    </task>
+    <task id="LOCAL-00031" summary="第一次">
+      <created>1547714921130</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714921130</updated>
+    </task>
+    <task id="LOCAL-00032" summary="第一次">
+      <created>1547716019113</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1547716019113</updated>
+    </task>
+    <task id="LOCAL-00033" summary="第一次">
+      <created>1547716035125</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1547716035125</updated>
+    </task>
+    <task id="LOCAL-00034" summary="第一次">
+      <created>1547716163115</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1547716163115</updated>
+    </task>
+    <task id="LOCAL-00035" summary="第一次">
+      <created>1547716400140</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1547716400140</updated>
+    </task>
+    <task id="LOCAL-00036" summary="第一次">
+      <created>1547717119110</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1547717119110</updated>
+    </task>
+    <task id="LOCAL-00037" summary="第一次">
+      <created>1547718560137</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1547718560137</updated>
+    </task>
+    <task id="LOCAL-00038" summary="第一次">
+      <created>1547721088138</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1547721088138</updated>
+    </task>
+    <task id="LOCAL-00039" summary="第一次">
+      <created>1547721470124</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1547721470124</updated>
+    </task>
+    <task id="LOCAL-00040" summary="第一次">
+      <created>1547774838138</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1547774838138</updated>
+    </task>
+    <task id="LOCAL-00041" summary="第一次">
+      <created>1547776729144</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1547776729144</updated>
+    </task>
+    <task id="LOCAL-00042" summary="第一次">
+      <created>1547785049140</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1547785049140</updated>
+    </task>
+    <task id="LOCAL-00043" summary="第一次">
+      <created>1547787986131</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1547787986131</updated>
+    </task>
+    <task id="LOCAL-00044" summary="第一次">
+      <created>1547791006129</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1547791006129</updated>
+    </task>
+    <task id="LOCAL-00045" summary="第一次">
+      <created>1547792324130</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1547792324130</updated>
+    </task>
+    <task id="LOCAL-00046" summary="第一次">
+      <created>1550211526124</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1550211526125</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="172959000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3988889" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42222223" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="60" y="98" width="1736" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38054055" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="第一次" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/system/impl/TSysDepartServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="82" column="20" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="82" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/RoomServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="69" column="93" lean-forward="false" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/RoomService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="30" column="86" lean-forward="false" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/RoomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="270" column="38" lean-forward="false" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/PermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="192" column="38" lean-forward="false" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/system/TSysRoleMenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/system/impl/TSysRoleMenuServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="76" column="5" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="76" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/GroupUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/GroupUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="85" column="38" lean-forward="false" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/TSysUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="171" column="3" lean-forward="true" selection-start-line="171" selection-start-column="3" selection-end-line="171" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/UserVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/system/TSysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GroupUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2700">
+          <caret line="100" column="39" lean-forward="false" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/group/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.6.RELEASE/spring-web-4.2.6.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/system/DepartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/MeetingsCriteria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/scanning111.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3807">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/MeetingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="229" column="41" lean-forward="true" selection-start-line="229" selection-start-column="41" selection-end-line="229" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/dao/MeetingsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="820" column="21" lean-forward="true" selection-start-line="820" selection-start-column="21" selection-end-line="820" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/MeetingsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="80" column="43" lean-forward="false" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/MeetingsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="34" column="42" lean-forward="false" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="15095" column="12" lean-forward="false" selection-start-line="15095" selection-start-column="12" selection-end-line="15095" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/RoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="28" column="36" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/errormsg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/nomeeting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/notice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3483">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/sign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/temple/bottom.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/sys_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2268">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/room/input.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="99" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/temple/head.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/WeixinController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12258">
+          <caret line="498" column="36" lean-forward="false" selection-start-line="498" selection-start-column="28" selection-end-line="498" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/GroupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3888">
+          <caret line="172" column="53" lean-forward="false" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/GroupService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/service/impl/GroupServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/dao/GroupDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/entity/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/system/TSysUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="42" />
+          <folding>
+            <marker date="1544685349862" expanded="true" signature="4578:4683" ph="select from t_sys_user" />
+            <marker date="1544685349862" expanded="true" signature="4770:4830" ph="delete from t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="4940:4962" ph="delete from t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="5148:5682" ph="insert into t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="11349:11380" ph="select count... t_sys_user" />
+            <marker date="1544685349862" expanded="true" signature="13130:13785" ph="update t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="14001:15187" ph="update t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="15292:15861" ph="update t_sys_user... " />
+            <marker date="1544685349862" expanded="true" signature="31494:31626" ph="select tsd.i... t_sys_depart" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GroupMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+          <folding>
+            <marker date="1547785034065" expanded="true" signature="4217:4319" ph="select from group" />
+            <marker date="1547785034065" expanded="true" signature="4405:4461" ph="delete from group... " />
+            <marker date="1547785034065" expanded="true" signature="4561:4579" ph="delete from group... " />
+            <marker date="1547785034065" expanded="true" signature="4795:5039" ph="insert into group... " />
+            <marker date="1547785034065" expanded="true" signature="7832:7859" ph="select count... group" />
+            <marker date="1547785034065" expanded="true" signature="8783:9067" ph="update group... " />
+            <marker date="1547785034065" expanded="true" signature="9273:9746" ph="update group... " />
+            <marker date="1547785034065" expanded="true" signature="9841:10093" ph="update group... " />
+            <marker date="1547785034065" expanded="true" signature="16182:16525" ph="SELECT g.id,... groups" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/weixin/scanning.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2673">
+          <caret line="99" column="23" lean-forward="false" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+          <folding>
+            <marker date="1547793503886" expanded="true" signature="5435:5502" ph="..." />
+            <marker date="1547793503886" expanded="true" signature="5532:5540" ph="&amp;##12288;" />
+            <marker date="1547793503886" expanded="true" signature="12602:12665" ph="..." />
+            <marker date="1547793503886" expanded="true" signature="12735:12785" ph="..." />
+            <marker date="1547793503886" expanded="true" signature="14952:14953" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/group/input.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4428">
+          <caret line="164" column="29" lean-forward="false" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/input.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/wxinput.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/electronicguide/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5508">
+          <caret line="204" column="13" lean-forward="false" selection-start-line="195" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhongzhou/websocket/WebSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/websocket.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9413">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>MeetingNotice:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.43333334" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.43333334" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web|MeetingNotice</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.43333334" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.43333334" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

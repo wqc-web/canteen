@@ -1,0 +1,296 @@
+<!--
+  日期： 2018年12月13日
+  作者： zz   zhz@jszzkj.cn
+  文档： 会议细节
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>会议详情</title>
+    <link rel="stylesheet" type="text/css" href="../../lying/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../lying/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/HZMN.css"/>
+    <style>
+        body{
+            overflow-y: initial;
+            height: auto;
+        }
+        .meeting-info-table-print table th,
+        .meeting-info-table-print table td{
+            width: 50%;
+            padding: 8px;
+        }
+        .meeting-info-table-print {
+            display: none;
+        }
+        .meeting-info-table-print table {
+            margin: 16px 0;
+        }
+        .meeting-info-table-print table th,
+        .meeting-info-table-print table td {
+            border: 1px solid #ccc;
+        }
+
+        /*打印样式*/
+        @media print {
+            /*打印时不可见*/
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+            .meeting-info-table-print {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="layui-col-md12">
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <blockquote class="layui-elem-quote">会议详情</blockquote>
+            </div>
+            <div class="layui-card-body">
+                <div class="layui-row">
+                    <div class="content layui-col-xs9 meetinginfo">
+                        <p class="meetingtime"></p>
+                        <p class="meetingtheme"></p>
+                    </div>
+                    <div class="content layui-col-xs3">
+                    </div>
+                </div>
+                <div class="layui-row layui-col-space15 meeting-info-table no-print">
+                    <div class="layui-col-xs4">
+                        <table class="layui-hide" id="table1"></table>
+                    </div>
+                    <div class="layui-col-xs4">
+                        <table class="layui-hide" id="table2"></table>
+                    </div>
+                    <div class="layui-col-xs4">
+                        <table class="layui-hide" id="table3"></table>
+                    </div>
+                </div>
+
+                <div class="layui-row layui-col-space15 meeting-info-table-print">
+                    <div class="layui-col-xs4">
+                        <table id="table4" style="width: 100%;text-align: center;"
+                               border="0" cellpadding="0" cellspacing="0" >
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="tableTitle">
+                                    已签到人员
+                                </th>
+                            </tr>
+                            <tr>
+                                <th> 人员姓名 </th>
+                                <th> 签到时间 </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="layui-col-xs4">
+                        <table id="table5" style="width: 100%;text-align: center;"
+                               border="1" cellpadding="0" cellspacing="0" >
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="tableTitle">
+                                    迟到人员
+                                </th>
+                            </tr>
+                            <tr>
+                                <th> 人员姓名 </th>
+                                <th> 签到时间 </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="layui-col-xs4">
+                        <table id="table6" style="width: 100%;text-align: center;"
+                               border="1" cellpadding="0" cellspacing="0" >
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="tableTitle">
+                                    未到人员
+                                </th>
+                            </tr>
+                            <tr>
+                                <th> 人员姓名 </th>
+                                <th> 签到时间 </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../lying/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/HZMN.js"></script>
+<script>
+    "use strict";
+
+    //获取url传递的参数 - 人员id
+    function getQueryString(name) {
+        const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+            r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    // 获取会议id
+    const meetingId = getQueryString("mid") || null;
+
+    layui.use("table", function() {
+        const table = layui.table,
+            $ = layui.jquery;
+
+        if (meetingId) {
+            //获取会议信息
+            $.ajax({
+                url: _parseAPIURL("/meeting/queryById?meetingid=" + meetingId),
+                type: "GET",
+                cache: false,
+                dataType: "JSON",
+                success: function(result) {
+                    // console.log(result.status, result.statusText);
+                    // console.log(result);
+                    if (result.code === "SUCCESS") {
+                        const p =
+                            "<p>会议时间：" +
+                            (result.data.meetingdate || "暂无信息") +
+                            " " +
+                            (result.data.starttime || "") +
+                            "</p><p>会议主题：" +
+                            (result.data.meetingtheme || "暂无信息") +
+                            "</p>",
+                            printBtn =
+                                '<button class="layui-btn layui-btn-normal no-print" style="float: right;" ' +
+                                'onclick="window.print()">打印</button>';
+                        $(".meetinginfo").append(p);
+                        $(".meetinginfo + .content").append(printBtn);
+                    }
+                },
+                error: function(result) {
+                    console.log(result.status, result.statusText);
+                    console.log(result);
+                }
+            });
+
+            //渲染表格
+            for (let i = 1; i < 4; i++) {
+                const title =
+                        i === 1
+                            ? "已签到人员"
+                            : i === 2
+                            ? "迟到人员"
+                            : i === 3
+                                ? "未到人员"
+                                : "[title]错误参数",
+                    apiUrl =
+                        i === 1
+                            ? "queryArrived"
+                            : i === 2
+                            ? "queryLate"
+                            : i === 3
+                                ? "queryAbsence"
+                                : "[apiUrl]错误参数";
+
+                $.ajax({
+                    url: _parseAPIURL("/meeting/" + apiUrl + "?meetingid=" + meetingId),
+                    type: "GET",
+                    cache: false,
+                    dataType: "JSON",
+                    text: { none: "暂无信息" },
+                    success: function(result) {
+                        // console.log(result.status, result.statusText);
+                        // console.log(result.data);
+                        if (result.code === "SUCCESS") {
+                            table.render({
+                                elem: "#table" + i,
+                                limit:999,
+                                cols: [
+                                    [
+                                        {
+                                            field: "username",
+                                            title: title + " (" + result.data.length + ")",
+                                            align: "center",
+                                            unresize: true,
+                                            colspan: 2
+                                        }
+                                    ],
+                                    [
+                                        {
+                                          field: "username",
+                                          title: "人员姓名",
+                                          align: "center",
+                                          unresize: true,
+                                          templet: '<div><div data-userid="{{d.userid}}">{{d.username}}</div></div>'
+                                        },
+                                        {
+                                            field: "signtime",
+                                            title: "签到时间",
+                                            align: "center",
+                                            unresize: true,
+                                            sort: true
+                                        }
+                                    ]
+                                ],
+                                data: result.data
+                                , done: function(res, curr, count){
+                                //如果是异步请求数据方式，res即为你接口返回的信息。
+                                //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                                console.log('===done回调===');
+                                console.log(res);
+
+                                res.data.forEach(function (val, index, arr) {
+                                  if(val.flag === 2 || val.flag === 4) {
+                                    // $('div[data-userid=' + val.userid + ']').parent().parent().parent()
+                                    //   .css('background-color', '#ffccc7');
+                                    $('div[data-userid=' + val.userid + ']').parent().parent().parent()
+                                      .css('color', '#ff4d4f');
+                                  }
+                                })
+                              }
+                            });
+
+                            //渲染打印表格
+                            const printTable = $('#table' + (i + 3));
+                            printTable.find('.tableTitle')[0].innerHTML += " (" + result.data.length + ")";
+                            let tr;
+                            if(result.data.length > 0) {
+                                result.data.forEach(function (e) {
+                                    tr = "<tr><td>"+(e.username||'暂无信息')+"</td><td>"+(e.signtime||'暂无信息')+"</td></tr>";
+                                    printTable.find('tbody').append(tr);
+                                })
+                            } else {
+                                tr = "<tr><td colspan='2'>暂无信息</td></tr>";
+                                printTable.find('tbody').append(tr);
+                            }
+
+                        }
+                    },
+                    error: function(result) {
+                        console.log(result.status, result.statusText);
+                        console.log(result);
+                    }
+                });
+            }
+
+
+        } else {
+            $(".meetingtheme").innerText = "暂无信息";
+        }
+    });
+</script>
+</html>

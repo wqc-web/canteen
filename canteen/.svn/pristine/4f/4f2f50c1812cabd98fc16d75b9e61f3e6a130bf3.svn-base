@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.MenuMessageDao">
+  
+	<select id="queryMenuMessagePage"  resultType="com.zhongzhou.dto.MenuMessageDto">
+		select 
+			mm.id menuMessageId , mm.time , mm.content, mm.wxid , mm.anonymous ,  mm.picurl, mm.lr,
+			u.name , u.gender , u.mobile, u.email , u.avatar 
+		from menu_message mm
+		LEFT JOIN user u 
+		on mm.wxid = u.wxid
+		
+		where  lr = #{lr}
+		
+		limit  #{startPage} , #{endPage}
+	</select>
+  
+  	<delete id="deleteId">
+	  delete from menu_message
+	  where id = #{id}
+	</delete>
+  
+</mapper>

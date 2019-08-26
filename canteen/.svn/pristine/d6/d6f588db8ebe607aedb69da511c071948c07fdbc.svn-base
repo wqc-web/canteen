@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongzhou.dao.canteen.TimeSlotDao">
+  
+	<select id="queryTimeSlot"  resultType="com.zhongzhou.entity.canteen.TimeSlot">
+		
+		select id, start_date startDate, end_date  endDate, name from  time_slot 
+
+		 where DATE_FORMAT(start_date,'%T')  &lt;=  #{time}
+		 and  DATE_FORMAT(end_date,'%T')  &gt;=  #{time}
+	
+	</select>
+  
+</mapper>

@@ -1,0 +1,24 @@
+package com.zhongzhou.dao.canteen;
+
+import org.springframework.stereotype.Repository;
+
+import com.zhongzhou.dao.SelfMapper;
+import com.zhongzhou.entity.canteen.Corporate;
+import com.zhongzhou.entity.canteen.User;
+
+/**
+ * 用户dao
+ */
+@Repository
+public interface UserDao  extends SelfMapper<User, Integer>{
+	
+	/**
+	 *  查询对象 返回对象
+	 */
+	User queryUser(User user);
+
+	Corporate queryCorporateInfo();
+	
+	User queryUserByWeixinid(String weixinid);
+	
+}

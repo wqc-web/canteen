@@ -1,0 +1,25 @@
+[[{
+  "title": "每周菜单",
+  "icon": "fa fa-cutlery",
+  "href": "week/list.html"
+},{
+  "title": "留言管理",
+  "icon": "fa fa-pencil-square-o",
+  "href": "message/list.html"
+},{
+  "title": "排名管理",
+  "icon": "fa fa-line-chart",
+  "href": "ranking/list.html"
+},{
+  "title": "菜单管理",
+  "icon": "fa fa-th-list",
+  "href": "menu/list.html"
+},{
+  "title": "人员管理",
+  "icon": "fa fa-address-card",
+  "href": "user/list.html"
+},{
+  "title": "时间管理",
+  "icon": "layui-icon-set-fill",
+  "href": "slot/jumpSlot"
+}]]

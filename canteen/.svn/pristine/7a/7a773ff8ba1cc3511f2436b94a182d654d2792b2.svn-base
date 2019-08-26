@@ -1,0 +1,72 @@
+package com.zhongzhou.dao.canteen;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+import com.zhongzhou.dao.SelfMapper;
+import com.zhongzhou.dto.MenuRankDto;
+import com.zhongzhou.entity.canteen.MenuFeedback;
+
+
+/**
+ * 	餐单 反馈 dao
+ */
+@Repository
+public interface MenuFeedbackDao extends SelfMapper<MenuFeedback, Integer>{
+
+	Long deleteObj(MenuFeedback menuFeedback);
+	
+	
+	/**
+	 *	查询菜单排名 分页 (好评 差评 ) 
+	 * 
+	 * @param goodState
+	 * @param startTime
+	 * @param endTime
+	 * @param startPage
+	 * @param endPage
+	 * @return
+	 */
+	List<MenuRankDto> queryMenuRank(@Param("goodState")Integer goodState, @Param("startTime")String startTime, @Param("endTime")String endTime, @Param("startPage")Integer startPage, @Param("endPage")Integer endPage);
+
+	
+	/**
+	 *	查询菜单排名 分页 (好评 差评 )  总数
+	 * 
+	 * @param goodState
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	Long queryMenuRankCount(@Param("goodState")Integer goodState, @Param("startTime")String startTime, @Param("endTime")String endTime);
+	
+	
+	/**
+	 *	查询是否点赞过
+	 * @param goodTime
+	 * @param menuId
+	 * @param wxid
+	 * @return
+	 */
+	Long queryMenuFeedbackIsExist(@Param("goodTime")String goodTime, @Param("menuId")Integer menuId,  @Param("wxid")String wxid);
+
+
+	
+	/**
+	 *	查询对象
+	 * @param menuFeedback
+	 * @return
+	 */
+	MenuFeedback queryMenuFeedbackObj( @Param("id")Integer id, @Param("goodState")Integer goodState,  @Param("goodTime")String goodTime, @Param("menuId")Integer menuId,  @Param("wxid")String wxid);
+
+
+	@Override
+	Long insert(MenuFeedback record);
+
+
+	@Override
+	Long update(MenuFeedback record);
+	
+	
+}
